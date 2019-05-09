@@ -2,6 +2,7 @@ package com.bensep.macpan.handlers;
 
 import com.bensep.macpan.main.Game;
 import com.bensep.macpan.states.GameState;
+import com.bensep.macpan.states.Play;
 
 import java.util.Stack;
 
@@ -38,10 +39,15 @@ public class GameStateManager {
 
     public void setState(int state){
         popState();
-        pushState();
+        pushState(state);
     }
 
     public void pushState(int state){
-        gameState.push()
+        gameStates.push(getState(state));
+    }
+
+    public void popState(){
+        GameState g = gameStates.pop();
+        g.dispose();
     }
 }
