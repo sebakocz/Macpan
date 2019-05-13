@@ -1,6 +1,8 @@
 package com.bensep.macpan.states;
 
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.bensep.macpan.handlers.GameStateManager;
 
 public class Play extends GameState {
