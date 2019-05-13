@@ -3,8 +3,12 @@ package com.bensep.macpan.main;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.bensep.macpan.entities.testActor;
 import com.bensep.macpan.handlers.GameStateManager;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class Game implements ApplicationListener {
 
@@ -22,6 +26,12 @@ public class Game implements ApplicationListener {
 
     private GameStateManager gsm;
 
+    //Testing by Seb - Stage
+    ////
+    public Stage stage;
+    public testActor ta;
+    ////
+
     @Override
     public void create() {
 
@@ -33,6 +43,14 @@ public class Game implements ApplicationListener {
 
         gsm = new GameStateManager(this);
 
+        //Testing by Seb - Stage
+        ////
+        stage = new Stage();
+
+        ta = new testActor();
+        stage.addActor(ta);
+        ////
+
     }
 
     @Override
@@ -42,6 +60,7 @@ public class Game implements ApplicationListener {
 
     @Override
     public void render() {
+
         accum += Gdx.graphics.getDeltaTime();
         while(accum >= STEP){
             accum -= STEP;
