@@ -1,0 +1,104 @@
+
+PacManGrid.png
+size: 64,32
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+energizer
+  rotate: false
+  xy: 22, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+grid0
+  rotate: false
+  xy: 12, 22
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+grid1
+  rotate: false
+  xy: 12, 12
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+grid10
+  rotate: false
+  xy: 2, 12
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+grid11
+  rotate: false
+  xy: 2, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+grid2
+  rotate: false
+  xy: 12, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+grid3
+  rotate: false
+  xy: 22, 22
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+grid4
+  rotate: false
+  xy: 22, 12
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+grid5
+  rotate: false
+  xy: 42, 12
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+grid6
+  rotate: false
+  xy: 32, 22
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+grid7
+  rotate: false
+  xy: 32, 12
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+grid8
+  rotate: false
+  xy: 32, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+grid9
+  rotate: false
+  xy: 42, 22
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+pallet
+  rotate: false
+  xy: 2, 22
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1

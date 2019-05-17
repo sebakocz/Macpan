@@ -9,6 +9,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.bensep.macpan.entities.testActor;
 import com.bensep.macpan.handlers.GameStateManager;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.bensep.macpan.tesxtures.Animations;
+import com.bensep.macpan.tesxtures.Textures;
 
 public class Game implements ApplicationListener {
 
@@ -54,8 +56,8 @@ public class Game implements ApplicationListener {
     }
 
     @Override
-    public void resize(int i, int i1) {
-
+    public void resize(int width, int height) {
+        cam.setToOrtho(false,width, height);
     }
 
     @Override
