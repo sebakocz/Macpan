@@ -25,6 +25,11 @@ public class Textures {
 
     public void loadTextures() {
         pallet = ResourceHandler.getInstance().getAtlas("PacManGrid").findRegion("pallet");
+        energizer = ResourceHandler.getInstance().getAtlas("PacManGrid").findRegion("energizer");
+        grid = new TextureRegion[13];
+        for (int i = 0; i < grid.length; i++) {
+            grid[i] = ResourceHandler.getInstance().getAtlas("PacManGrid").findRegion("grid" + i);
+        }
 
     }
 

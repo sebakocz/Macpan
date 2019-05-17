@@ -18,4 +18,8 @@ public class Pallet extends Entity {
         //Todo: Update Score
         super.onDeath();
     }
+
+    @Override
+    public void updateMovement() {}
+
 }

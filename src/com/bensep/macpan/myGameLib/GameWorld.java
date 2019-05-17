@@ -9,14 +9,12 @@ import java.util.ArrayList;
 
 public abstract class GameWorld {
 
-    protected OrthographicCamera gameCamera;
     protected ArrayList<Entity> entities;
     protected WorldTile[][] worldGrid;
     protected float tileSize;
     private ArrayList<Entity> dead;
 
-    public GameWorld(OrthographicCamera gameCamera, int worldWith, int worldHeight, float tileSize) {
-        this.gameCamera = gameCamera;
+    public GameWorld(int worldWith, int worldHeight, float tileSize) {
         entities = new ArrayList<Entity>();
         worldGrid = new WorldTile[worldWith][worldHeight];
         this.tileSize = tileSize;
@@ -34,8 +32,9 @@ public abstract class GameWorld {
             }
         }
         dead.forEach(entity -> {
-            entities.remove(entity);
+            removeHoldingObject(entity.x, entity.y, entity);
         });
+        entities.removeAll(dead);
         dead.removeAll(dead);
     }
 

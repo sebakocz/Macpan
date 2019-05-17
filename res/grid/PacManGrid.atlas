@@ -6,21 +6,21 @@ filter: Nearest,Nearest
 repeat: none
 energizer
   rotate: false
-  xy: 22, 2
+  xy: 32, 22
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
   index: -1
 grid0
   rotate: false
-  xy: 12, 22
+  xy: 12, 12
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
   index: -1
 grid1
   rotate: false
-  xy: 12, 12
+  xy: 12, 2
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
@@ -39,58 +39,65 @@ grid11
   orig: 8, 8
   offset: 0, 0
   index: -1
-grid2
+grid12
   rotate: false
-  xy: 12, 2
+  xy: 12, 22
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
   index: -1
-grid3
+grid2
   rotate: false
   xy: 22, 22
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
   index: -1
-grid4
+grid3
   rotate: false
   xy: 22, 12
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
   index: -1
+grid4
+  rotate: false
+  xy: 22, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
 grid5
   rotate: false
-  xy: 42, 12
+  xy: 42, 2
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
   index: -1
 grid6
   rotate: false
-  xy: 32, 22
+  xy: 32, 12
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
   index: -1
 grid7
   rotate: false
-  xy: 32, 12
+  xy: 32, 2
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
   index: -1
 grid8
   rotate: false
-  xy: 32, 2
+  xy: 42, 22
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
   index: -1
 grid9
   rotate: false
-  xy: 42, 22
+  xy: 42, 12
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
