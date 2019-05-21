@@ -26,9 +26,7 @@ public class PacMan extends Entity {
 
     @Override
     public void updateMovement() {
-        if (!InputHandler.getInstance().getDirections().empty()) {
-            handleWalk(InputHandler.getInstance().getDirections());
-        }
+        handleWalk(InputHandler.getInstance().getDirections());
 
 
     }
@@ -38,22 +36,22 @@ public class PacMan extends Entity {
             Direction direction = directions.pop();
             switch (direction) {
                 case UP:
-                    if (!translate(0, 1)) {
+                    if (!translate(0, MOVEMENT_SPEED)) {
                         handleWalk(directions);
                     } else this.direction = direction;
                     break;
                 case DOWN:
-                    if (!translate(0, -1)) {
+                    if (!translate(0, -MOVEMENT_SPEED)) {
                         handleWalk(directions);
                     } else this.direction = direction;
                     break;
                 case LEFT:
-                    if (!translate(-1, 0)) {
+                    if (!translate(-MOVEMENT_SPEED, 0)) {
                         handleWalk(directions);
                     } else this.direction = direction;
                     break;
                 case RIGHT:
-                    if (!translate(1, 0)) {
+                    if (!translate(MOVEMENT_SPEED, 0)) {
                         handleWalk(directions);
                     } else this.direction = direction;
                     break;
@@ -62,16 +60,16 @@ public class PacMan extends Entity {
         } else {
             switch (direction) {
                 case UP:
-                    translate(0, 1);
+                    translate(0, MOVEMENT_SPEED);
                     break;
                 case DOWN:
-                    translate(0, -1);
+                    translate(0, -MOVEMENT_SPEED);
                     break;
                 case LEFT:
-                    translate(-1, 0);
+                    translate(-MOVEMENT_SPEED, 0);
                     break;
                 case RIGHT:
-                    translate(1, 0);
+                    translate(MOVEMENT_SPEED, 0);
                     break;
             }
         }
