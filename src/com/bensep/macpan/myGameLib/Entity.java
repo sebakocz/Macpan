@@ -55,8 +55,4 @@ public abstract class Entity extends GameObject {
         return true;
     }
 
-    public enum Directions {
-        UP, DOWN, RIGHT, LEFT,
-    }
-
 }

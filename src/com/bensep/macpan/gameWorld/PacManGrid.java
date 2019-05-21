@@ -2,6 +2,8 @@ package com.bensep.macpan.gameWorld;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.bensep.macpan.entities.PacMan;
+import com.bensep.macpan.entities.Pallet;
 import com.bensep.macpan.myGameLib.GameObject;
 import com.bensep.macpan.myGameLib.GameWorld;
 import com.bensep.macpan.tesxtures.Textures;
@@ -14,9 +16,10 @@ public class PacManGrid extends GameWorld {
         super(WORLD_WIDTH, WORLD_HEIGHT, TILE_SIZE);
         for (int x = 0; x < WORLD_WIDTH; x++) {
             for (int y = 0; y < WORLD_HEIGHT; y++) {
-                setGridAt(x,y,false, Textures.getInstance().grid[5]);
+                setGridAt(x,y,false, Textures.getInstance().grid[6][0]);
             }
         }
+        entities.add(new PacMan(8,8,this));
     }
 
     @Override
@@ -26,6 +29,7 @@ public class PacManGrid extends GameWorld {
                 worldGrid[x][y].render(spriteBatch);
             }
         }
+        entities.forEach(entity -> entity.render(spriteBatch));
     }
 
     public void setGridAt(int x, int y, boolean collide, TextureRegion textureRegion) {

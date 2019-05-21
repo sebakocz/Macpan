@@ -2,6 +2,7 @@ package com.bensep.macpan.main;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -10,6 +11,7 @@ import com.bensep.macpan.entities.testActor;
 import com.bensep.macpan.gameWorld.PacManGrid;
 import com.bensep.macpan.handlers.GameStateManager;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.bensep.macpan.handlers.InputHandler;
 import com.bensep.macpan.myGameLib.ResourceHandler;
 import com.bensep.macpan.tesxtures.Animations;
 import com.bensep.macpan.tesxtures.Textures;
@@ -42,6 +44,7 @@ public class Game implements ApplicationListener {
         hudCam.setToOrtho(false, V_WIDTH, V_HEIGHT);
         initResources();
         gsm = new GameStateManager(this);
+        Gdx.input.setInputProcessor(InputHandler.getInstance());
     }
 
     @Override
@@ -94,5 +97,6 @@ public class Game implements ApplicationListener {
 
     public void initResources() {
         ResourceHandler.getInstance().addAtlas("PacManGrid", "res/grid/PacManGrid.atlas");
+        ResourceHandler.getInstance().addAtlas("PacManMove", "res/entities/PacManMove.atlas");
     }
 }

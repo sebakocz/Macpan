@@ -1,5 +1,6 @@
 package com.bensep.macpan.gameWorld;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.bensep.macpan.myGameLib.WorldTile;
 
@@ -15,5 +16,10 @@ public class WorlPart extends WorldTile {
     @Override
     public void update() {
 
+    }
+
+    @Override
+    public void render(SpriteBatch spriteBatch) {
+        spriteBatch.draw(texture, x + xTextureOffset, y + yTextureOffset);
     }
 }

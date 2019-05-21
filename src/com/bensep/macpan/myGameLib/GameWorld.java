@@ -1,9 +1,7 @@
 package com.bensep.macpan.myGameLib;
 
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.utils.Array;
 
 import java.util.ArrayList;
 
@@ -52,13 +50,23 @@ public abstract class GameWorld {
         return out;
     }
 
-    public boolean hitEntity(Rectangle dmdArea, double amount, byte dagCollide) {
+    public boolean hitEntity(Rectangle dmdArea, double amount, byte dmgCollide) {
         boolean out = false;
         for (Entity e:entities
         ) {
-            if (e.hit(dmdArea, amount, dagCollide)) out = true;
+            if (e.hit(dmdArea, amount, dmgCollide)) out = true;
         }
         return out;
+    }
+
+    public void hitEntity(int x, int y, double amount, byte dmgCollide) {
+        if (worldGrid[x][y] != null) {
+            worldGrid[x][y].holdingObjects.forEach(object -> {
+                if (object.getClass().equals(Entity.class)) {
+                    ((Entity) object).hit(object, amount, dmgCollide);
+                }
+            });
+        }
     }
 
     public void killEntity(Entity entity) {
@@ -66,11 +74,11 @@ public abstract class GameWorld {
     }
 
     public void removeHoldingObject(float x, float y, GameObject object) {
-        worldGrid[(int) (x+.5f / tileSize)][(int) (y+.5f / tileSize)].holdingObjects.remove(object);
+        worldGrid[(int) (x / tileSize + .5f / tileSize)][(int) (y / tileSize + .5f / tileSize)].holdingObjects.remove(object);
     }
 
     public void addHoldingObject(float x, float y, GameObject object) {
-        worldGrid[(int) (x+.5f / tileSize)][(int) (y+.5f / tileSize)].holdingObjects.add(object);
+        worldGrid[(int) (x / tileSize + .5f / tileSize)][(int) (y / tileSize + .5f / tileSize)].holdingObjects.add(object);
     }
 
 

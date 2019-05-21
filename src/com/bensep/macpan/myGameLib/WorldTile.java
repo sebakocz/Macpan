@@ -28,7 +28,6 @@ public abstract class WorldTile extends GameObject {
         ) {
             e.render(spriteBatch);
         }
-        holdingObjects.removeAll(holdingObjects);
     }
 
     @Override

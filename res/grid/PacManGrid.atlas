@@ -1,110 +1,229 @@
 
 PacManGrid.png
-size: 64,32
+size: 128,32
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
 energizer
   rotate: false
-  xy: 32, 22
+  xy: 82, 2
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
   index: -1
-grid0
-  rotate: false
-  xy: 12, 12
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: -1
-grid1
-  rotate: false
-  xy: 12, 2
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: -1
-grid10
-  rotate: false
-  xy: 2, 12
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: -1
-grid11
-  rotate: false
-  xy: 2, 2
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: -1
-grid12
-  rotate: false
-  xy: 12, 22
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: -1
-grid2
+grid00
   rotate: false
   xy: 22, 22
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
   index: -1
-grid3
+grid01
   rotate: false
   xy: 22, 12
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
   index: -1
-grid4
+grid02
   rotate: false
   xy: 22, 2
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
   index: -1
-grid5
+grid03
   rotate: false
-  xy: 42, 2
+  xy: 32, 22
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
   index: -1
-grid6
+grid10
   rotate: false
-  xy: 32, 12
+  xy: 72, 22
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
   index: -1
-grid7
+grid11
   rotate: false
-  xy: 32, 2
+  xy: 72, 12
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
   index: -1
-grid8
+grid12
   rotate: false
-  xy: 42, 22
+  xy: 72, 2
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
   index: -1
-grid9
+grid13
+  rotate: false
+  xy: 82, 22
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+grid20
+  rotate: false
+  xy: 12, 12
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+grid21
+  rotate: false
+  xy: 12, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+grid22
+  rotate: false
+  xy: 2, 22
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+grid23
+  rotate: false
+  xy: 62, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+grid30
+  rotate: false
+  xy: 62, 12
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+grid31
+  rotate: false
+  xy: 2, 12
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+grid32
+  rotate: false
+  xy: 102, 12
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+grid33
+  rotate: false
+  xy: 82, 12
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+grid40
+  rotate: false
+  xy: 2, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+grid41
+  rotate: false
+  xy: 12, 22
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+grid42
   rotate: false
   xy: 42, 12
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
   index: -1
+grid43
+  rotate: false
+  xy: 32, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+grid50
+  rotate: false
+  xy: 52, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+grid51
+  rotate: false
+  xy: 62, 22
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+grid52
+  rotate: false
+  xy: 92, 22
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+grid53
+  rotate: false
+  xy: 102, 22
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+grid60
+  rotate: false
+  xy: 32, 12
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+grid61
+  rotate: false
+  xy: 92, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+grid62
+  rotate: false
+  xy: 52, 22
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+grid63
+  rotate: false
+  xy: 42, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+grid70
+  rotate: false
+  xy: 92, 12
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+grid71
+  rotate: false
+  xy: 52, 12
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
 pallet
   rotate: false
-  xy: 2, 22
+  xy: 42, 22
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
