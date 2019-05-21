@@ -9,6 +9,8 @@ import com.bensep.macpan.myGameLib.Entity;
 import com.bensep.macpan.myGameLib.GameWorld;
 import com.bensep.macpan.tesxtures.Animations;
 
+import java.util.Stack;
+
 import static com.bensep.macpan.constants.Constants.*;
 
 public class PacMan extends Entity {
@@ -25,23 +27,54 @@ public class PacMan extends Entity {
     @Override
     public void updateMovement() {
         if (!InputHandler.getInstance().getDirections().empty()) {
-            direction = InputHandler.getInstance().getDirections().peek();
-        }
-        switch (direction) {
-            case UP:
-                translate(0, 1);
-                break;
-            case DOWN:
-                translate(0, -1);
-                break;
-            case LEFT:
-                translate(-1, 0);
-                break;
-            case RIGHT:
-                translate(1, 0);
-                break;
+            handleWalk(InputHandler.getInstance().getDirections());
         }
 
+
+    }
+
+    public void handleWalk(Stack<Direction> directions) {
+        if (directions.size() > 0) {
+            Direction direction = directions.pop();
+            switch (direction) {
+                case UP:
+                    if (!translate(0, 1)) {
+                        handleWalk(directions);
+                    } else this.direction = direction;
+                    break;
+                case DOWN:
+                    if (!translate(0, -1)) {
+                        handleWalk(directions);
+                    } else this.direction = direction;
+                    break;
+                case LEFT:
+                    if (!translate(-1, 0)) {
+                        handleWalk(directions);
+                    } else this.direction = direction;
+                    break;
+                case RIGHT:
+                    if (!translate(1, 0)) {
+                        handleWalk(directions);
+                    } else this.direction = direction;
+                    break;
+            }
+            directions.add(direction);
+        } else {
+            switch (direction) {
+                case UP:
+                    translate(0, 1);
+                    break;
+                case DOWN:
+                    translate(0, -1);
+                    break;
+                case LEFT:
+                    translate(-1, 0);
+                    break;
+                case RIGHT:
+                    translate(1, 0);
+                    break;
+            }
+        }
     }
 
     @Override
