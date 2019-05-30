@@ -25,6 +25,11 @@ public class PacMan extends Entity {
     }
 
     @Override
+    public void update() {
+        gameWorld.hitEntity((int) (x/TILE_SIZE + .5f), (int) (y/TILE_SIZE + .5f), 1, dmgCollide);
+    }
+
+    @Override
     public void updateMovement() {
         handleWalk(InputHandler.getInstance().getDirections());
 
@@ -79,16 +84,16 @@ public class PacMan extends Entity {
     public void render(SpriteBatch spriteBatch) {
         switch (direction) {
             case UP:
-                spriteBatch.draw(animation.getKeyFrame((x + y), true), x + xTextureOffset, y + yTextureOffset, TILE_SIZE, TILE_SIZE, TILE_SIZE * 2, TILE_SIZE * 2, 1, 1, 0);
+                spriteBatch.draw(animation.getKeyFrame((x + y + 2f), true), x + xTextureOffset, y + yTextureOffset, TILE_SIZE, TILE_SIZE, TILE_SIZE * 2, TILE_SIZE * 2, 1, 1, 0);
                 break;
             case DOWN:
-                spriteBatch.draw(animation.getKeyFrame((x + y), true), x + xTextureOffset, y + yTextureOffset, TILE_SIZE, TILE_SIZE, TILE_SIZE * 2, TILE_SIZE * 2,1,1, 180);
+                spriteBatch.draw(animation.getKeyFrame((x + y + 2f), true), x + xTextureOffset, y + yTextureOffset, TILE_SIZE, TILE_SIZE, TILE_SIZE * 2, TILE_SIZE * 2, 1, 1, 180);
                 break;
             case LEFT:
-                spriteBatch.draw(animation.getKeyFrame((x + y), true), x + xTextureOffset, y + yTextureOffset, TILE_SIZE, TILE_SIZE, TILE_SIZE * 2, TILE_SIZE * 2,1,1, 90);
+                spriteBatch.draw(animation.getKeyFrame((x + y + 2f), true), x + xTextureOffset, y + yTextureOffset, TILE_SIZE, TILE_SIZE, TILE_SIZE * 2, TILE_SIZE * 2, 1, 1, 90);
                 break;
             case RIGHT:
-                spriteBatch.draw(animation.getKeyFrame((x + y), true), x + xTextureOffset, y + yTextureOffset, TILE_SIZE, TILE_SIZE, TILE_SIZE * 2, TILE_SIZE * 2, 1, 1, 270);
+                spriteBatch.draw(animation.getKeyFrame((x + y + 2f), true), x + xTextureOffset, y + yTextureOffset, TILE_SIZE, TILE_SIZE, TILE_SIZE * 2, TILE_SIZE * 2, 1, 1, 270);
                 break;
         }
     }

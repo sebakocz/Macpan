@@ -12,7 +12,8 @@ public class MacpanDesktop {
         cfg.title = Game.TITLE;
         cfg.width = Game.V_WIDTH * Game.SCALE;
         cfg.height = Game.V_HEIGHT * Game.SCALE;
-
+        cfg.foregroundFPS = 60;
+        cfg.backgroundFPS = 1;
         new LwjglApplication(new Game(), cfg);
     }
 

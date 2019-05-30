@@ -31,6 +31,7 @@ public class PacManGrid extends GameWorld {
                     switch (strings[x]) {
                         case "pallet":
                             setGridAt(x,y,false, Textures.getInstance().empty);
+                            spawnEntity(new Pallet(x,y,this));
                             break;
                         case "energizer":
                             setGridAt(x,y,false, Textures.getInstance().empty);
@@ -39,7 +40,7 @@ public class PacManGrid extends GameWorld {
                             setGridAt(x,y,false, Textures.getInstance().empty);
                             break;
                         case "71":
-                            setGridAt(x,y,false, Textures.getInstance().barrier);
+                            worldGrid[x][y] = new WorlPart(x, y, GameObject.IN2, Textures.getInstance().barrier);
                             break;
                             default:
                                 setGridAt(x,y,true, Textures.getInstance().grid[Integer.valueOf(strings[x])/10][Integer.valueOf(strings[x])%10]);

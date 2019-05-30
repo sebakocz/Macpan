@@ -60,13 +60,15 @@ public abstract class GameWorld {
     }
 
     public void hitEntity(int x, int y, double amount, byte dmgCollide) {
-        if (worldGrid[x][y] != null) {
-            worldGrid[x][y].holdingObjects.forEach(object -> {
-                if (object.getClass().equals(Entity.class)) {
-                    ((Entity) object).hit(object, amount, dmgCollide);
-                }
-            });
-        }
+        try {
+            if (worldGrid[x][y] != null) {
+                worldGrid[x][y].holdingObjects.forEach(object -> {
+                    try {
+                        ((Entity) object).hit(object, amount, dmgCollide);
+                    } catch (Exception ignored) {}
+                });
+            }
+        }catch (Exception ignored){}
     }
 
     public void killEntity(Entity entity) {
@@ -74,11 +76,16 @@ public abstract class GameWorld {
     }
 
     public void removeHoldingObject(float x, float y, GameObject object) {
-        worldGrid[(int) (x / tileSize + .5f / tileSize)][(int) (y / tileSize + .5f / tileSize)].holdingObjects.remove(object);
+        worldGrid[(int) (x / tileSize + .5f)][(int) (y / tileSize + .5f)].holdingObjects.remove(object);
     }
 
     public void addHoldingObject(float x, float y, GameObject object) {
-        worldGrid[(int) (x / tileSize + .5f / tileSize)][(int) (y / tileSize + .5f / tileSize)].holdingObjects.add(object);
+        worldGrid[(int) (x / tileSize + .5f)][(int) (y / tileSize + .5f)].holdingObjects.add(object);
+    }
+
+    public void spawnEntity(Entity entity) {
+        entities.add(entity);
+        addHoldingObject(entity.x, entity.y, entity);
     }
 
 

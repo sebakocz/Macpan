@@ -60,12 +60,15 @@ public class Game implements ApplicationListener {
     @Override
     public void render() {
         sb.setProjectionMatrix(cam.combined);
-        accum += Gdx.graphics.getDeltaTime();
-        while(accum >= STEP){
-            accum -= STEP;
-            gsm.update(STEP);
-            gsm.render();
-        }
+        //accum += Gdx.graphics.getDeltaTime();
+        //while(accum >= STEP){
+        //    accum -= STEP;
+        //    System.out.println(accum);
+        //    gsm.update(STEP);
+        //    gsm.render();
+        //}
+        gsm.update(STEP);
+        gsm.render();
     }
 
     @Override
