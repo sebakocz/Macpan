@@ -2,19 +2,22 @@ package com.bensep.macpan.myGameLib;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
 
 import java.util.ArrayList;
 
-public abstract class GameWorld {
+public abstract class GameWorld extends Rectangle{
 
     protected ArrayList<Entity> entities;
     protected WorldTile[][] worldGrid;
     protected float tileSize;
     private ArrayList<Entity> dead;
+    private boolean loop;
 
-    public GameWorld(int worldWith, int worldHeight, float tileSize) {
+    public GameWorld(int worldWidth, int worldHeight, float tileSize) {
+        super(0, 0, worldWidth * tileSize - 1f, worldHeight * tileSize - 1f);
         entities = new ArrayList<Entity>();
-        worldGrid = new WorldTile[worldWith][worldHeight];
+        worldGrid = new WorldTile[worldWidth][worldHeight];
         this.tileSize = tileSize;
         dead = new ArrayList<>();
     }
@@ -30,7 +33,7 @@ public abstract class GameWorld {
             }
         }
         dead.forEach(entity -> {
-            removeHoldingObject(entity.x, entity.y, entity);
+            removeHoldingObject(entity);
         });
         entities.removeAll(dead);
         dead.removeAll(dead);
@@ -50,7 +53,7 @@ public abstract class GameWorld {
         return out;
     }
 
-    public boolean hitEntity(Rectangle dmdArea, double amount, byte dmgCollide) {
+    public boolean hitEntity(Rectangle dmdArea, float amount, byte dmgCollide) {
         boolean out = false;
         for (Entity e:entities
         ) {
@@ -59,10 +62,10 @@ public abstract class GameWorld {
         return out;
     }
 
-    public void hitEntity(int x, int y, double amount, byte dmgCollide) {
+    public void hitEntity(float x, float y, float amount, byte dmgCollide) {
         try {
-            if (worldGrid[x][y] != null) {
-                worldGrid[x][y].holdingObjects.forEach(object -> {
+            if (worldGrid[(int) (x / tileSize)][(int) (y / tileSize)] != null) {
+                worldGrid[(int) (x / tileSize)][(int) (y / tileSize)].holdingObjects.forEach(object -> {
                     try {
                         ((Entity) object).hit(object, amount, dmgCollide);
                     } catch (Exception ignored) {}
@@ -71,21 +74,33 @@ public abstract class GameWorld {
         }catch (Exception ignored){}
     }
 
+    public void hitEntity(Vector2 pos, float amount, byte dmgCollide) {
+        hitEntity(pos.x, pos.y, amount, dmgCollide);
+    }
+
     public void killEntity(Entity entity) {
         dead.add(entity);
     }
 
     public void removeHoldingObject(float x, float y, GameObject object) {
-        worldGrid[(int) (x / tileSize + .5f)][(int) (y / tileSize + .5f)].holdingObjects.remove(object);
+        worldGrid[(int) (x / tileSize)][(int) (y / tileSize)].holdingObjects.remove(object);
+    }
+
+    public void removeHoldingObject(GameObject object) {
+        removeHoldingObject(object.getCenter().x, object.getCenter().y, object);
     }
 
     public void addHoldingObject(float x, float y, GameObject object) {
-        worldGrid[(int) (x / tileSize + .5f)][(int) (y / tileSize + .5f)].holdingObjects.add(object);
+        worldGrid[(int) (x / tileSize)][(int) (y / tileSize)].holdingObjects.add(object);
+    }
+
+    public void addHoldingObject(GameObject object) {
+        addHoldingObject(object.getCenter().x, object.getCenter().y, object);
     }
 
     public void spawnEntity(Entity entity) {
         entities.add(entity);
-        addHoldingObject(entity.x, entity.y, entity);
+        addHoldingObject(entity);
     }
 
 

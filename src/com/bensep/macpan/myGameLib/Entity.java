@@ -2,6 +2,7 @@ package com.bensep.macpan.myGameLib;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
 
 public abstract class Entity extends GameObject {
 
@@ -9,6 +10,7 @@ public abstract class Entity extends GameObject {
     protected double maxHealth;
     protected byte dmgCollide;
     protected GameWorld gameWorld;
+    private Vector2 lastPos;
 
     public Entity(float x, float y, float with, float height, float xTextureOffset, float yTextureOffset, byte collide, byte dmgCollide, TextureRegion texture, double maxHealth, double health, GameWorld gameWorld) {
         super(x, y, with, height, xTextureOffset, yTextureOffset, collide, texture);
@@ -16,7 +18,8 @@ public abstract class Entity extends GameObject {
         this.health = health;
         this.maxHealth = maxHealth;
         this.dmgCollide = dmgCollide;
-        gameWorld.addHoldingObject(x, y, this);
+        lastPos = new Vector2();
+        gameWorld.addHoldingObject(this);
     }
 
     public void onDeath() {
@@ -30,7 +33,7 @@ public abstract class Entity extends GameObject {
         if (health<=0) onDeath();
     }
 
-    public boolean hit(Rectangle dmgArea,double amount, byte dmgCollide) {
+    public boolean hit(Rectangle dmgArea,float amount, byte dmgCollide) {
         boolean out = false;
         if ((dmgCollide & (this.dmgCollide << 4)) > 0) {
             if (this.overlaps(dmgArea)) {
@@ -41,17 +44,25 @@ public abstract class Entity extends GameObject {
         return out;
     }
 
-    public boolean translate(float x, float y) {
-        gameWorld.removeHoldingObject(x, y, this);
-        this.x += x;
-        this.y += y;
+    public boolean translate(float moveX, float moveY) {
+        gameWorld.removeHoldingObject(this);
+        lastPos.x = x;
+        lastPos.y = y;
+        x += moveX;
+        y += moveY;
+        if (!gameWorld.contains(getCenter())) {
+            if (center.x < 0) x += gameWorld.width;
+            if (center.y < 0) y += gameWorld.height;
+            if (center.x >= gameWorld.width) x -= gameWorld.width;
+            if (center.y >= gameWorld.height) y -= gameWorld.height;
+        }
         if (gameWorld.collide(this)) {
-            this.x -= x;
-            this.y -= y;
-            gameWorld.addHoldingObject(x, y, this);
+            x = lastPos.x;
+            y = lastPos.y;
+            gameWorld.addHoldingObject(this);
             return false;
         }
-        gameWorld.addHoldingObject(x, y, this);
+        gameWorld.addHoldingObject(this);
         return true;
     }
 

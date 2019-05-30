@@ -2,7 +2,6 @@ package com.bensep.macpan.entities;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.bensep.macpan.handlers.InputHandler;
 import com.bensep.macpan.myGameLib.Direction;
 import com.bensep.macpan.myGameLib.Entity;
@@ -26,7 +25,7 @@ public class PacMan extends Entity {
 
     @Override
     public void update() {
-        gameWorld.hitEntity((int) (x/TILE_SIZE + .5f), (int) (y/TILE_SIZE + .5f), 1, dmgCollide);
+        gameWorld.hitEntity(getCenter(), 1, dmgCollide);
     }
 
     @Override
@@ -99,7 +98,7 @@ public class PacMan extends Entity {
     }
 
     @Override
-    public boolean translate(float x, float y) {
-        return super.translate(x, y);
+    public boolean translate(float moveX, float moveY) {
+        return super.translate(moveX, moveY);
     }
 }
