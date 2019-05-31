@@ -69,7 +69,6 @@ public class Game implements ApplicationListener {
         //}
         gsm.update(STEP);
         gsm.render();
-        System.out.println(Gdx.graphics.getDeltaTime());
     }
 
     @Override

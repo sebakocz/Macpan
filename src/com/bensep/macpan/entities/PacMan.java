@@ -86,13 +86,13 @@ public class PacMan extends Entity {
                 spriteBatch.draw(animation.getKeyFrame((x + y + 4f), true), x + xTextureOffset, y + yTextureOffset, TILE_SIZE, TILE_SIZE, TILE_SIZE * 2, TILE_SIZE * 2, 1, 1, 0);
                 break;
             case DOWN:
-                spriteBatch.draw(animation.getKeyFrame((x + y + 4f), true), x + xTextureOffset, y + yTextureOffset, TILE_SIZE, TILE_SIZE, TILE_SIZE * 2, TILE_SIZE * 2, 1, 1, 180);
+                spriteBatch.draw(animation.getKeyFrame((x + y + 4f), true), x + xTextureOffset, y + yTextureOffset, TILE_SIZE, TILE_SIZE, TILE_SIZE * 2, TILE_SIZE * 2, 1, -1, 0);
                 break;
             case LEFT:
                 spriteBatch.draw(animation.getKeyFrame((x + y + 4f), true), x + xTextureOffset, y + yTextureOffset, TILE_SIZE, TILE_SIZE, TILE_SIZE * 2, TILE_SIZE * 2, 1, 1, 90);
                 break;
             case RIGHT:
-                spriteBatch.draw(animation.getKeyFrame((x + y + 4f), true), x + xTextureOffset, y + yTextureOffset, TILE_SIZE, TILE_SIZE, TILE_SIZE * 2, TILE_SIZE * 2, 1, 1, 270);
+                spriteBatch.draw(animation.getKeyFrame((x + y + 4f), true), x + xTextureOffset, y + yTextureOffset, TILE_SIZE, TILE_SIZE, TILE_SIZE * 2, TILE_SIZE * 2, 1, -1, 90);
                 break;
         }
     }

@@ -55,7 +55,7 @@ Clyde_Left
   index: -1
 Clyde_Right
   rotate: false
-  xy: 56, 38
+  xy: 38, 92
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
@@ -102,13 +102,20 @@ PacMan_Dying
   orig: 16, 16
   offset: 0, 0
   index: 0
+PacMan_Walk
+  rotate: false
+  xy: 2, 74
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
 PacMan_Dying
   rotate: false
   xy: 20, 92
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
-  index: 1
+  index: 5
 PacMan_Dying
   rotate: false
   xy: 38, 110
@@ -132,13 +139,6 @@ PacMan_Dying
   index: 4
 PacMan_Dying
   rotate: false
-  xy: 38, 92
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 5
-PacMan_Dying
-  rotate: false
   xy: 56, 110
   size: 16, 16
   orig: 16, 16
@@ -157,7 +157,7 @@ PacMan_Dying
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
-  index: 8
+  index: 1
 PacMan_Dying
   rotate: false
   xy: 38, 74
@@ -179,6 +179,13 @@ PacMan_Dying
   orig: 16, 16
   offset: 0, 0
   index: 10
+PacMan_Dying
+  rotate: false
+  xy: 20, 20
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 8
 PacMan_Life
   rotate: false
   xy: 74, 92
@@ -186,13 +193,6 @@ PacMan_Life
   orig: 16, 16
   offset: 0, 0
   index: -1
-PacMan_Walk
-  rotate: false
-  xy: 20, 20
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 2
 PacMan_Walk
   rotate: false
   xy: 38, 38
