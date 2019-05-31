@@ -36,14 +36,14 @@ public class PacManGrid extends GameWorld {
                         case "energizer":
                             setGridAt(x,y,false, Textures.getInstance().empty);
                             break;
-                        case "70":
+                        case "7_3":
                             setGridAt(x,y,false, Textures.getInstance().empty);
                             break;
-                        case "71":
+                        case "7_2":
                             worldGrid[x][y] = new WorlPart(x, y, GameObject.IN2, Textures.getInstance().barrier);
                             break;
                             default:
-                                setGridAt(x,y,true, Textures.getInstance().grid[Integer.valueOf(strings[x])/10][Integer.valueOf(strings[x])%10]);
+                                setGridAt(x,y,true, Textures.getInstance().maze[Character.getNumericValue(strings[x].charAt(0))][Character.getNumericValue(strings[x].charAt(2))]);
                                 break;
                     }
                 }

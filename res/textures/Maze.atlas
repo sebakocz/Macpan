@@ -1,230 +1,272 @@
 
-PacManGrid.png
-size: 128,32
-format: RGBA8888
+Maze.png
+size: 512,16
+format: RGBA4444
 filter: Nearest,Nearest
 repeat: none
-energizer
+Energizer
   rotate: false
-  xy: 82, 2
+  xy: 302, 2
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
   index: -1
-grid00
-  rotate: false
-  xy: 22, 22
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: -1
-grid01
-  rotate: false
-  xy: 22, 12
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: -1
-grid02
-  rotate: false
-  xy: 22, 2
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: -1
-grid03
-  rotate: false
-  xy: 32, 22
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: -1
-grid10
-  rotate: false
-  xy: 72, 22
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: -1
-grid11
-  rotate: false
-  xy: 72, 12
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: -1
-grid12
-  rotate: false
-  xy: 72, 2
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: -1
-grid13
-  rotate: false
-  xy: 82, 22
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: -1
-grid20
-  rotate: false
-  xy: 12, 12
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: -1
-grid21
-  rotate: false
-  xy: 12, 2
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: -1
-grid22
-  rotate: false
-  xy: 2, 22
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: -1
-grid23
-  rotate: false
-  xy: 62, 2
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: -1
-grid30
-  rotate: false
-  xy: 62, 12
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: -1
-grid31
-  rotate: false
-  xy: 2, 12
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: -1
-grid32
-  rotate: false
-  xy: 102, 12
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: -1
-grid33
-  rotate: false
-  xy: 82, 12
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: -1
-grid40
+Pallet
   rotate: false
   xy: 2, 2
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
   index: -1
-grid41
-  rotate: false
-  xy: 12, 22
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: -1
-grid42
-  rotate: false
-  xy: 42, 12
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: -1
-grid43
-  rotate: false
-  xy: 32, 2
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: -1
-grid50
-  rotate: false
-  xy: 52, 2
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: -1
-grid51
-  rotate: false
-  xy: 62, 22
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: -1
-grid52
-  rotate: false
-  xy: 92, 22
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: -1
-grid53
-  rotate: false
-  xy: 102, 22
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: -1
-grid60
-  rotate: false
-  xy: 32, 12
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: -1
-grid61
+Wall_0
   rotate: false
   xy: 92, 2
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
-  index: -1
-grid62
+  index: 0
+Wall_0
   rotate: false
-  xy: 52, 22
+  xy: 102, 2
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
-  index: -1
-grid63
+  index: 1
+Wall_0
+  rotate: false
+  xy: 122, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 3
+Wall_0
+  rotate: false
+  xy: 292, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 2
+Wall_1
+  rotate: false
+  xy: 112, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 1
+Wall_1
+  rotate: false
+  xy: 132, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 3
+Wall_1
+  rotate: false
+  xy: 162, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 0
+Wall_1
+  rotate: false
+  xy: 362, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 2
+Wall_2
+  rotate: false
+  xy: 62, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 2
+Wall_2
+  rotate: false
+  xy: 142, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 3
+Wall_2
+  rotate: false
+  xy: 172, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 6
+Wall_2
+  rotate: false
+  xy: 182, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 7
+Wall_2
+  rotate: false
+  xy: 192, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 4
+Wall_2
+  rotate: false
+  xy: 232, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 5
+Wall_2
+  rotate: false
+  xy: 342, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 0
+Wall_2
+  rotate: false
+  xy: 372, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 1
+Wall_3
+  rotate: false
+  xy: 72, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 0
+Wall_3
+  rotate: false
+  xy: 152, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 3
+Wall_3
+  rotate: false
+  xy: 212, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 2
+Wall_3
+  rotate: false
+  xy: 282, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 1
+Wall_4
+  rotate: false
+  xy: 22, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 0
+Wall_4
+  rotate: false
+  xy: 32, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 1
+Wall_4
   rotate: false
   xy: 42, 2
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
-  index: -1
-grid70
+  index: 2
+Wall_4
   rotate: false
-  xy: 92, 12
+  xy: 332, 2
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
-  index: -1
-grid71
+  index: 3
+Wall_5
   rotate: false
-  xy: 52, 12
+  xy: 12, 2
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
-  index: -1
-pallet
+  index: 2
+Wall_5
   rotate: false
-  xy: 42, 22
+  xy: 52, 2
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
-  index: -1
+  index: 3
+Wall_5
+  rotate: false
+  xy: 82, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 0
+Wall_5
+  rotate: false
+  xy: 262, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 1
+Wall_6
+  rotate: false
+  xy: 202, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 3
+Wall_6
+  rotate: false
+  xy: 222, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 2
+Wall_6
+  rotate: false
+  xy: 252, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 1
+Wall_6
+  rotate: false
+  xy: 352, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 0
+Wall_7
+  rotate: false
+  xy: 242, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 2
+Wall_7
+  rotate: false
+  xy: 272, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 3
+Wall_7
+  rotate: false
+  xy: 312, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 0
+Wall_7
+  rotate: false
+  xy: 322, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 1

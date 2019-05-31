@@ -14,6 +14,7 @@ public class MacpanDesktop {
         cfg.height = Game.V_HEIGHT * Game.SCALE;
         cfg.foregroundFPS = 60;
         cfg.backgroundFPS = 1;
+        cfg.vSyncEnabled = true;
         new LwjglApplication(new Game(), cfg);
     }
 

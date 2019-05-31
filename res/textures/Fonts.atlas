@@ -1,0 +1,97 @@
+
+Fonts.png
+size: 256,16
+format: RGBA4444
+filter: Nearest,Nearest
+repeat: none
+0
+  rotate: false
+  xy: 80, 8
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+1
+  rotate: false
+  xy: 88, 8
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+2
+  rotate: false
+  xy: 96, 8
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+3
+  rotate: false
+  xy: 104, 8
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+4
+  rotate: false
+  xy: 112, 8
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+5
+  rotate: false
+  xy: 120, 8
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+6
+  rotate: false
+  xy: 120, 0
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+7
+  rotate: false
+  xy: 128, 8
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+8
+  rotate: false
+  xy: 128, 0
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+9
+  rotate: false
+  xy: 136, 8
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+GameOver
+  rotate: false
+  xy: 0, 0
+  size: 72, 8
+  orig: 72, 8
+  offset: 0, 0
+  index: -1
+HighScore
+  rotate: false
+  xy: 0, 8
+  size: 80, 8
+  orig: 80, 8
+  offset: 0, 0
+  index: -1
+Ready
+  rotate: false
+  xy: 72, 0
+  size: 48, 8
+  orig: 48, 8
+  offset: 0, 0
+  index: -1

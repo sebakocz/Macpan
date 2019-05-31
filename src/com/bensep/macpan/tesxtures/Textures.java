@@ -19,27 +19,26 @@ public class Textures {
     }
 
     public TextureRegion pallet, energizer;
-    public TextureRegion[][] grid;
-    public TextureRegion[] pacMan;
+    public TextureRegion[][] maze;
+    public TextureRegion[] pacManWalk;
     public TextureRegion empty;
     public TextureRegion barrier;
 
 
     public void loadTextures() {
-        pallet = ResourceHandler.getInstance().getAtlas("PacManGrid").findRegion("pallet");
-        energizer = ResourceHandler.getInstance().getAtlas("PacManGrid").findRegion("energizer");
-        grid = new TextureRegion[7][4];
-        for (int i = 0; i < grid.length; i++) {
-            for (int j = 0; j < grid[0].length; j++) {
-                grid[i][j] = ResourceHandler.getInstance().getAtlas("PacManGrid").findRegion("grid" + i + j);
+        pallet = ResourceHandler.getInstance().getAtlas("Maze").findRegion("Pallet");
+        energizer = ResourceHandler.getInstance().getAtlas("Maze").findRegion("Energizer");
+        maze = new TextureRegion[8][8];
+        for (int i = 0; i < maze.length; i++) {
+            for (int j = 0; j < ((i == 2) ? 8 : 4); j++) {
+                maze[i][j] = ResourceHandler.getInstance().getAtlas("Maze").findRegion("Wall_" + i, j);
             }
-
         }
-        empty = ResourceHandler.getInstance().getAtlas("PacManGrid").findRegion("grid70");
-        barrier = ResourceHandler.getInstance().getAtlas("PacManGrid").findRegion("grid71");
-        pacMan = new TextureRegion[4];
-        for (int i = 0; i < pacMan.length; i++) {
-            pacMan[i] = ResourceHandler.getInstance().getAtlas("PacManMove").findRegion("PacMan" + i);
+        empty = ResourceHandler.getInstance().getAtlas("Maze").findRegion("Wall_7",3);
+        barrier = ResourceHandler.getInstance().getAtlas("Maze").findRegion("Wall_7",2);
+        pacManWalk = new TextureRegion[4];
+        for (int i = 0; i < pacManWalk.length; i++) {
+            pacManWalk[i] = ResourceHandler.getInstance().getAtlas("Entities").findRegion("PacMan_Walk", i);
         }
 
     }

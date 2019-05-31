@@ -8,5 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="gdx-backend-android" level="project" />
+    <orderEntry type="library" name="gdx-backend-lwjgl-natives" level="project" />
   </component>
 </module>

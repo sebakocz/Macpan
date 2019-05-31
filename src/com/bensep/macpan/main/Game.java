@@ -69,6 +69,7 @@ public class Game implements ApplicationListener {
         //}
         gsm.update(STEP);
         gsm.render();
+        System.out.println(Gdx.graphics.getDeltaTime());
     }
 
     @Override
@@ -99,7 +100,7 @@ public class Game implements ApplicationListener {
     }
 
     public void initResources() {
-        ResourceHandler.getInstance().addAtlas("PacManGrid", "res/grid/PacManGrid.atlas");
-        ResourceHandler.getInstance().addAtlas("PacManMove", "res/entities/PacManMove.atlas");
+        ResourceHandler.getInstance().addAtlas("Maze", "res/textures/Maze.atlas");
+        ResourceHandler.getInstance().addAtlas("Entities", "res/textures/Entities.atlas");
     }
 }
