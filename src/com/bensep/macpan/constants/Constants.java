@@ -7,7 +7,7 @@ public class Constants {
     public static final int WORLD_HEIGHT = 36;
     public static final int WORLD_WIDTH = 28;
 
-    public static final float MOVEMENT_SPEED = .5f;
+    public static final float MOVEMENT_SPEED = 1f;
 
     //inputs
     public static final int MOVE_UP = UP;

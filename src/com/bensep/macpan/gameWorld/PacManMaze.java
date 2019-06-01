@@ -2,6 +2,7 @@ package com.bensep.macpan.gameWorld;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.bensep.macpan.entities.Energizer;
 import com.bensep.macpan.entities.PacMan;
 import com.bensep.macpan.entities.Pallet;
 import com.bensep.macpan.myGameLib.GameObject;
@@ -14,12 +15,15 @@ import java.util.Scanner;
 
 import static com.bensep.macpan.constants.Constants.*;
 
-public class PacManGrid extends GameWorld {
+public class PacManMaze extends GameWorld {
 
-    public PacManGrid() {
+    private PacMan pacMan;
+
+    public PacManMaze() {
         super(WORLD_WIDTH, WORLD_HEIGHT, TILE_SIZE);
         loadGrid();
-        entities.add(new PacMan(13.5f,9,this));
+        pacMan = new PacMan(13.5f, 9, this, .8f);
+        entities.add(pacMan);
     }
 
     public void loadGrid() {
@@ -35,6 +39,7 @@ public class PacManGrid extends GameWorld {
                             break;
                         case "energizer":
                             setGridAt(x,y,false, Textures.getInstance().empty);
+                            spawnEntity(new Energizer(x,y,this));
                             break;
                         case "7_3":
                             setGridAt(x,y,false, Textures.getInstance().empty);
@@ -69,5 +74,9 @@ public class PacManGrid extends GameWorld {
             worldGrid[x][y] = new WorlPart(x, y, GameObject.IN1, textureRegion);
         else
             worldGrid[x][y] = new WorlPart(x, y, (byte) 0, textureRegion);
+    }
+
+    public PacMan getPacMan() {
+        return pacMan;
     }
 }

@@ -2,19 +2,11 @@ package com.bensep.macpan.main;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.bensep.macpan.entities.testActor;
-import com.bensep.macpan.gameWorld.PacManGrid;
 import com.bensep.macpan.handlers.GameStateManager;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.bensep.macpan.handlers.InputHandler;
 import com.bensep.macpan.myGameLib.ResourceHandler;
-import com.bensep.macpan.tesxtures.Animations;
-import com.bensep.macpan.tesxtures.Textures;
 
 import static com.bensep.macpan.constants.Constants.*;
 

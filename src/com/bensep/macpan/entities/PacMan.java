@@ -2,10 +2,10 @@ package com.bensep.macpan.entities;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.bensep.macpan.gameWorld.PacManMaze;
 import com.bensep.macpan.handlers.InputHandler;
 import com.bensep.macpan.myGameLib.Direction;
 import com.bensep.macpan.myGameLib.Entity;
-import com.bensep.macpan.myGameLib.GameWorld;
 import com.bensep.macpan.tesxtures.Animations;
 
 import java.util.Stack;
@@ -16,11 +16,14 @@ public class PacMan extends Entity {
 
     private Direction direction;
     private Animation animation;
+    private float speed;
+    private float speedBuffer;
 
-    public PacMan(float x, float y, GameWorld gameWorld) {
+    public PacMan(float x, float y, PacManMaze gameWorld, float speed) {
         super(x * TILE_SIZE, y * TILE_SIZE, 8, 8, -4, -4, (byte) (OUT1 | OUT2), (byte) (OUT1 | IN2), null, 1, 1, gameWorld);
         animation = Animations.getInstance().pacMan;
         direction = Direction.UP;
+        this.speed = speed;
     }
 
     @Override
@@ -30,9 +33,11 @@ public class PacMan extends Entity {
 
     @Override
     public void updateMovement() {
-        handleWalk(InputHandler.getInstance().getDirections());
-
-
+        speedBuffer += speed;
+        if (speedBuffer >= 1) {
+            speedBuffer--;
+            handleWalk(InputHandler.getInstance().getDirections());
+        }
     }
 
     public void handleWalk(Stack<Direction> directions) {
@@ -100,5 +105,9 @@ public class PacMan extends Entity {
     @Override
     public boolean translate(float moveX, float moveY) {
         return super.translate(moveX, moveY);
+    }
+
+    public void stop(float frames) {
+        speedBuffer -= frames * speed;
     }
 }

@@ -2,21 +2,18 @@ package com.bensep.macpan.states;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.bensep.macpan.gameWorld.PacManGrid;
+import com.bensep.macpan.gameWorld.PacManMaze;
 import com.bensep.macpan.handlers.GameStateManager;
 
 public class Play extends GameState {
 
     private BitmapFont font = new BitmapFont();
-    private PacManGrid pacManGrid;
+    private PacManMaze pacManMaze;
 
     public Play(GameStateManager gsm) {
         super(gsm);
-        pacManGrid = new PacManGrid();
+        pacManMaze = new PacManMaze();
 
     }
 
@@ -27,7 +24,7 @@ public class Play extends GameState {
 
     @Override
     public void update(float dt) {
-        pacManGrid.update();
+        pacManMaze.update();
     }
 
     @Override
@@ -49,7 +46,7 @@ public class Play extends GameState {
         //Testing by Seb - Stage
         ////
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        pacManGrid.render(game.getSb());
+        pacManMaze.render(game.getSb());
         //gsm.game().stage.draw();
         ////
 
