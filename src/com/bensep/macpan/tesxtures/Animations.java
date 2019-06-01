@@ -23,7 +23,7 @@ public class Animations {
 
     private void loadAnimations() {
         Textures textures = Textures.getInstance();
-        pacMan = new Animation(4f*MOVEMENT_SPEED, textures.pacManWalk);
+        pacMan = new Animation(2f*MOVEMENT_SPEED, textures.pacManWalk);
     }
 
 

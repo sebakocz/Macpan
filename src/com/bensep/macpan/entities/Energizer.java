@@ -15,6 +15,7 @@ public class Energizer extends Entity {
     @Override
     public void onDeath() {
         ((PacManMaze) gameWorld).getPacMan().stop(3f);
+        ((PacManMaze) gameWorld).getPacMan().setSpeed(.9f,600);
         super.onDeath();
     }
 

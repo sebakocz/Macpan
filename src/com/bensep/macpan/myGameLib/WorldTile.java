@@ -45,4 +45,8 @@ public abstract class WorldTile extends GameObject {
         return back;
     }
 
+    public boolean checkCollide(byte collide) {
+        return (collide & (this.collide << 4)) > 0;
+    }
+
 }

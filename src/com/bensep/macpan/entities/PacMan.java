@@ -1,7 +1,9 @@
 package com.bensep.macpan.entities;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.MathUtils;
 import com.bensep.macpan.gameWorld.PacManMaze;
 import com.bensep.macpan.handlers.InputHandler;
 import com.bensep.macpan.myGameLib.Direction;
@@ -17,12 +19,14 @@ public class PacMan extends Entity {
     private Direction direction;
     private Animation animation;
     private float speed;
+    private float speedBoost;
+    private float speedBoostTimer;
     private float speedBuffer;
 
     public PacMan(float x, float y, PacManMaze gameWorld, float speed) {
         super(x * TILE_SIZE, y * TILE_SIZE, 8, 8, -4, -4, (byte) (OUT1 | OUT2), (byte) (OUT1 | IN2), null, 1, 1, gameWorld);
         animation = Animations.getInstance().pacMan;
-        direction = Direction.UP;
+        direction = Direction.LEFT;
         this.speed = speed;
     }
 
@@ -33,54 +37,69 @@ public class PacMan extends Entity {
 
     @Override
     public void updateMovement() {
-        speedBuffer += speed;
-        if (speedBuffer >= 1) {
+        if (speedBoostTimer > 0) {
+            speedBoostTimer--;
+            speedBuffer += speedBoost;
+        }else speedBuffer += speed;
+
+        while (speedBuffer >= 1) {
             speedBuffer--;
-            handleWalk(InputHandler.getInstance().getDirections());
+            handleWalk(InputHandler.getInstance().getDirection());
         }
     }
 
-    public void handleWalk(Stack<Direction> directions) {
-        if (directions.size() > 0) {
-            Direction direction = directions.pop();
+    public void handleWalk(Direction direction) {
+        if (direction != this.direction && direction != Direction.NONE) {
             switch (direction) {
                 case UP:
-                    if (!translate(0, MOVEMENT_SPEED)) {
-                        handleWalk(directions);
-                    } else this.direction = direction;
+                    if (!gameWorld.checkCollide(getCenter().x, center.y + TILE_SIZE, dmgCollide)) {
+                        cornering(direction);
+                    }
                     break;
                 case DOWN:
-                    if (!translate(0, -MOVEMENT_SPEED)) {
-                        handleWalk(directions);
-                    } else this.direction = direction;
+                    if (!gameWorld.checkCollide(getCenter().x, center.y - TILE_SIZE, dmgCollide)) {
+                        cornering(direction);
+                    }
                     break;
                 case LEFT:
-                    if (!translate(-MOVEMENT_SPEED, 0)) {
-                        handleWalk(directions);
-                    } else this.direction = direction;
+                    if (!gameWorld.checkCollide(getCenter().x - TILE_SIZE, center.y, dmgCollide)) {
+                        cornering(direction);
+                    }
                     break;
                 case RIGHT:
-                    if (!translate(MOVEMENT_SPEED, 0)) {
-                        handleWalk(directions);
-                    } else this.direction = direction;
+                    if (!gameWorld.checkCollide(getCenter().x + TILE_SIZE, center.y, dmgCollide)) {
+                        cornering(direction);
+                    }
                     break;
             }
-            directions.add(direction);
+        }
+        switch (this.direction) {
+            case UP:
+                translate(0, MOVEMENT_SPEED);
+                break;
+            case DOWN:
+                translate(0, -MOVEMENT_SPEED);
+                break;
+            case LEFT:
+                translate(-MOVEMENT_SPEED, 0);
+                break;
+            case RIGHT:
+                translate(MOVEMENT_SPEED, 0);
+                break;
+        }
+
+    }
+
+    private void cornering(Direction direction) {
+        getCenter();
+        if (this.direction.opposing(direction)) {
+            this.direction = direction;
         } else {
-            switch (direction) {
-                case UP:
-                    translate(0, MOVEMENT_SPEED);
-                    break;
-                case DOWN:
-                    translate(0, -MOVEMENT_SPEED);
-                    break;
-                case LEFT:
-                    translate(-MOVEMENT_SPEED, 0);
-                    break;
-                case RIGHT:
-                    translate(MOVEMENT_SPEED, 0);
-                    break;
-            }
+            this.direction = direction;
+            speedBuffer += Math.abs(gameWorld.getTileAt(center.x, center.y).x - x);
+            speedBuffer += Math.abs(gameWorld.getTileAt(center.x, center.y).y - y);
+            x = gameWorld.getTileAt(center.x, center.y).x;
+            y = gameWorld.getTileAt(center.x, center.y).y;
         }
     }
 
@@ -109,5 +128,14 @@ public class PacMan extends Entity {
 
     public void stop(float frames) {
         speedBuffer -= frames * speed;
+    }
+
+    public void setSpeed(float speed, float time) {
+        if (time == 0f) {
+            this.speed = speed;
+        } else {
+            speedBoost = speed;
+            speedBoostTimer = time;
+        }
     }
 }

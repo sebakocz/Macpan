@@ -53,6 +53,10 @@ public abstract class GameWorld extends Rectangle{
         return out;
     }
 
+    public boolean checkCollide(float x, float y, byte dmgCollide) {
+        return worldGrid[(int) (x / tileSize)][(int) (y / tileSize)].checkCollide(dmgCollide);
+    }
+
     public boolean hitEntity(Rectangle dmdArea, float amount, byte dmgCollide) {
         boolean out = false;
         for (Entity e:entities
@@ -101,6 +105,10 @@ public abstract class GameWorld extends Rectangle{
     public void spawnEntity(Entity entity) {
         entities.add(entity);
         addHoldingObject(entity);
+    }
+
+    public WorldTile getTileAt(float x, float y) {
+        return worldGrid[(int) (x / tileSize)][(int) (y / tileSize)];
     }
 
 

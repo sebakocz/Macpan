@@ -10,11 +10,11 @@ import static com.bensep.macpan.myGameLib.Direction.*;
 
 public class InputHandler extends InputAdapter {
 
-    private Stack<Direction> directions;
     private static InputHandler instance;
+    private Direction direction;
 
     private InputHandler() {
-        directions = new Stack<>();
+        direction = NONE;
     }
 
     public static InputHandler getInstance() {
@@ -28,20 +28,16 @@ public class InputHandler extends InputAdapter {
     public boolean keyDown(int keycode) {
         switch (keycode) {
             case MOVE_UP:
-                directions.remove(UP);
-                directions.add(UP);
+                direction = UP;
                 break;
             case MOVE_DOWN:
-                directions.remove(DOWN);
-                directions.add(DOWN);
+                direction = DOWN;
                 break;
             case MOVE_LEFT:
-                directions.remove(LEFT);
-                directions.add(LEFT);
+                direction = LEFT;
                 break;
             case MOVE_RIGHT:
-                directions.remove(RIGHT);
-                directions.add(RIGHT);
+                direction = RIGHT;
                 break;
         }
         return true;
@@ -51,22 +47,22 @@ public class InputHandler extends InputAdapter {
     public boolean keyUp(int keycode) {
         switch (keycode) {
             case MOVE_UP:
-                directions.remove(UP);
+                if (direction == UP) direction = NONE;
                 break;
             case MOVE_DOWN:
-                directions.remove(DOWN);
+                if (direction == DOWN) direction = NONE;
                 break;
             case MOVE_LEFT:
-                directions.remove(LEFT);
+                if (direction == LEFT) direction = NONE;
                 break;
             case MOVE_RIGHT:
-                directions.remove(RIGHT);
+                if (direction == RIGHT) direction = NONE;
                 break;
         }
         return true;
     }
 
-    public Stack<Direction> getDirections() {
-        return directions;
+    public Direction getDirection() {
+        return direction;
     }
 }
