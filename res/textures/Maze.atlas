@@ -27,13 +27,6 @@ Wall_0
   index: 0
 Wall_0
   rotate: false
-  xy: 102, 2
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: 1
-Wall_0
-  rotate: false
   xy: 122, 2
   size: 8, 8
   orig: 8, 8
@@ -46,6 +39,20 @@ Wall_0
   orig: 8, 8
   offset: 0, 0
   index: 2
+Wall_0
+  rotate: false
+  xy: 352, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 1
+Wall_1
+  rotate: false
+  xy: 102, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 0
 Wall_1
   rotate: false
   xy: 112, 2
@@ -62,18 +69,18 @@ Wall_1
   index: 3
 Wall_1
   rotate: false
-  xy: 162, 2
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: 0
-Wall_1
-  rotate: false
-  xy: 362, 2
+  xy: 372, 2
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
   index: 2
+Wall_2
+  rotate: false
+  xy: 52, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 0
 Wall_2
   rotate: false
   xy: 62, 2
@@ -90,6 +97,13 @@ Wall_2
   index: 3
 Wall_2
   rotate: false
+  xy: 152, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 1
+Wall_2
+  rotate: false
   xy: 172, 2
   size: 8, 8
   orig: 8, 8
@@ -104,13 +118,6 @@ Wall_2
   index: 7
 Wall_2
   rotate: false
-  xy: 192, 2
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: 4
-Wall_2
-  rotate: false
   xy: 232, 2
   size: 8, 8
   orig: 8, 8
@@ -122,14 +129,7 @@ Wall_2
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
-  index: 0
-Wall_2
-  rotate: false
-  xy: 372, 2
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: 1
+  index: 4
 Wall_3
   rotate: false
   xy: 72, 2
@@ -137,13 +137,6 @@ Wall_3
   orig: 8, 8
   offset: 0, 0
   index: 0
-Wall_3
-  rotate: false
-  xy: 152, 2
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: 3
 Wall_3
   rotate: false
   xy: 212, 2
@@ -158,6 +151,13 @@ Wall_3
   orig: 8, 8
   offset: 0, 0
   index: 1
+Wall_3
+  rotate: false
+  xy: 312, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 3
 Wall_4
   rotate: false
   xy: 22, 2
@@ -171,14 +171,14 @@ Wall_4
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
-  index: 1
+  index: 2
 Wall_4
   rotate: false
-  xy: 42, 2
+  xy: 272, 2
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
-  index: 2
+  index: 1
 Wall_4
   rotate: false
   xy: 332, 2
@@ -195,7 +195,7 @@ Wall_5
   index: 2
 Wall_5
   rotate: false
-  xy: 52, 2
+  xy: 42, 2
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
@@ -237,11 +237,25 @@ Wall_6
   index: 1
 Wall_6
   rotate: false
-  xy: 352, 2
+  xy: 362, 2
   size: 8, 8
   orig: 8, 8
   offset: 0, 0
   index: 0
+Wall_7
+  rotate: false
+  xy: 162, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 0
+Wall_7
+  rotate: false
+  xy: 192, 2
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: 3
 Wall_7
   rotate: false
   xy: 242, 2
@@ -249,20 +263,6 @@ Wall_7
   orig: 8, 8
   offset: 0, 0
   index: 2
-Wall_7
-  rotate: false
-  xy: 272, 2
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: 3
-Wall_7
-  rotate: false
-  xy: 312, 2
-  size: 8, 8
-  orig: 8, 8
-  offset: 0, 0
-  index: 0
 Wall_7
   rotate: false
   xy: 322, 2
