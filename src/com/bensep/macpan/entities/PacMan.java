@@ -22,12 +22,14 @@ public class PacMan extends Entity {
     private float speedBoost;
     private float speedBoostTimer;
     private float speedBuffer;
+    private float freezeTimer;
 
     public PacMan(float x, float y, PacManMaze gameWorld, float speed) {
         super(x * TILE_SIZE, y * TILE_SIZE, 8, 8, -4, -4, (byte) (OUT1 | OUT2), (byte) (OUT1 | IN2), null, 1, 1, gameWorld);
         animation = Animations.getInstance().pacMan;
         direction = Direction.LEFT;
         this.speed = speed;
+        freezeTimer = 60;
     }
 
     @Override
@@ -37,13 +39,17 @@ public class PacMan extends Entity {
 
     @Override
     public void updateMovement() {
-        if (speedBoostTimer > 0) {
-            speedBoostTimer--;
-            speedBuffer += speedBoost;
-        }else speedBuffer += speed;
+        if (freezeTimer <= 0) {
+            if (speedBoostTimer > 0) {
+                speedBoostTimer--;
+                speedBuffer += speedBoost;
+            }else speedBuffer += speed;
 
-        handleWalk(InputHandler.getInstance().getDirection());
-        speedBuffer = 0;
+            if (speedBuffer > 0) {
+                handleWalk(InputHandler.getInstance().getDirection());
+                speedBuffer = 0;
+            }
+        } else freezeTimer--;
     }
 
     public void handleWalk(Direction direction) {
@@ -125,7 +131,7 @@ public class PacMan extends Entity {
     }
 
     public void stop(float frames) {
-        speedBuffer -= frames * speed;
+        freezeTimer += frames;
     }
 
     public void setSpeed(float speed, float time) {

@@ -20,10 +20,12 @@ public class Animations {
     }
 
     public Animation pacMan;
+    public Animation energizer;
 
     private void loadAnimations() {
         Textures textures = Textures.getInstance();
         pacMan = new Animation(2f*MOVEMENT_SPEED, textures.pacManWalk);
+        energizer = new Animation(20f, textures.energizer, textures.empty);
     }
 
 
