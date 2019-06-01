@@ -42,10 +42,8 @@ public class PacMan extends Entity {
             speedBuffer += speedBoost;
         }else speedBuffer += speed;
 
-        while (speedBuffer >= 1) {
-            speedBuffer--;
-            handleWalk(InputHandler.getInstance().getDirection());
-        }
+        handleWalk(InputHandler.getInstance().getDirection());
+        speedBuffer = 0;
     }
 
     public void handleWalk(Direction direction) {
@@ -75,16 +73,16 @@ public class PacMan extends Entity {
         }
         switch (this.direction) {
             case UP:
-                translate(0, MOVEMENT_SPEED);
+                translate(0, speedBuffer);
                 break;
             case DOWN:
-                translate(0, -MOVEMENT_SPEED);
+                translate(0, -speedBuffer);
                 break;
             case LEFT:
-                translate(-MOVEMENT_SPEED, 0);
+                translate(-speedBuffer, 0);
                 break;
             case RIGHT:
-                translate(MOVEMENT_SPEED, 0);
+                translate(speedBuffer, 0);
                 break;
         }
 
