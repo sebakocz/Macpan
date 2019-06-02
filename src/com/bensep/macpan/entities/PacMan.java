@@ -56,22 +56,22 @@ public class PacMan extends Entity {
         if (direction != this.direction && direction != Direction.NONE) {
             switch (direction) {
                 case UP:
-                    if (!gameWorld.checkCollide(getCenter().x, center.y + TILE_SIZE, dmgCollide)) {
+                    if (!gameWorld.checkCollide(getCenter().x, center.y + TILE_SIZE, collide)) {
                         cornering(direction);
                     }
                     break;
                 case DOWN:
-                    if (!gameWorld.checkCollide(getCenter().x, center.y - TILE_SIZE, dmgCollide)) {
+                    if (!gameWorld.checkCollide(getCenter().x, center.y - TILE_SIZE, collide)) {
                         cornering(direction);
                     }
                     break;
                 case LEFT:
-                    if (!gameWorld.checkCollide(getCenter().x - TILE_SIZE, center.y, dmgCollide)) {
+                    if (!gameWorld.checkCollide(getCenter().x - TILE_SIZE, center.y, collide)) {
                         cornering(direction);
                     }
                     break;
                 case RIGHT:
-                    if (!gameWorld.checkCollide(getCenter().x + TILE_SIZE, center.y, dmgCollide)) {
+                    if (!gameWorld.checkCollide(getCenter().x + TILE_SIZE, center.y, collide)) {
                         cornering(direction);
                     }
                     break;
