@@ -25,7 +25,7 @@ public class Ghost extends Entity {
     private boolean turn;
 
     public Ghost(Personality personality, GameWorld gameWorld, float speed) {
-        super(personality.getXStartPos(), personality.getYStartPos(), TILE_SIZE, TILE_SIZE, -4, -4, (byte) (OUT1 | OUT2), OUT2, null, 1, 1, gameWorld);
+        super(personality.getXStartPos(), personality.getYStartPos(), TILE_SIZE, TILE_SIZE, -4, -4, (byte) (OUT1 | OUT2 | OUT3), OUT2, null, 1, 1, gameWorld);
         this.personality = personality;
         currentTile = (WorldPart) gameWorld.getTileAt(getCenter().x, center.y);
         direction = Direction.LEFT;
@@ -41,6 +41,9 @@ public class Ghost extends Entity {
             handleDecision();
         }
         currentTile = (WorldPart) gameWorld.getTileAt(getCenter().x, center.y);
+        gameWorld.hitEntity(getCenter(), 1, dmgCollide);
+        System.out.println(getPos());
+        super.update();
     }
 
     @Override
@@ -57,9 +60,9 @@ public class Ghost extends Entity {
             } else {
                 speedBuffer += speed;
             }
-            while (speedBuffer >= 1f) {
+            while (speedBuffer >= .5f) {
                 handleWalk();
-                speedBuffer--;
+                speedBuffer-=.5f;
             }
         }
     }
@@ -68,16 +71,16 @@ public class Ghost extends Entity {
         turn = false;
         switch (newDirection) {
             case UP:
-                turn = translate(0f, 1f);
+                turn = translate(0f, .5f);
                 break;
             case DOWN:
-                turn = translate(0f, -1f);
+                turn = translate(0f, -.5f);
                 break;
             case LEFT:
-                turn = translate(-1f, 0f);
+                turn = translate(-.5f, 0f);
                 break;
             case RIGHT:
-                turn = translate(1f, 0f);
+                turn = translate(.5f, 0f);
                 break;
         }
         if (turn) {
@@ -85,16 +88,16 @@ public class Ghost extends Entity {
         } else {
             switch (direction) {
                 case UP:
-                    translate(0f, 1f);
+                    translate(0f, .5f);
                     break;
                 case DOWN:
-                    translate(0f, -1f);
+                    translate(0f, -.5f);
                     break;
                 case LEFT:
-                    translate(-1f, 0f);
+                    translate(-.5f, 0f);
                     break;
                 case RIGHT:
-                    translate(1f, 0f);
+                    translate(.5f, 0f);
                     break;
             }
         }

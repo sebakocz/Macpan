@@ -104,12 +104,12 @@ public abstract class GameWorld extends Rectangle{
 
     public void spawnEntity(Entity entity) {
         entities.add(entity);
-        addHoldingObject(entity);
     }
 
     public WorldTile getTileAt(float x, float y) {
         return worldGrid[(int) (x / tileSize)][(int) (y / tileSize)];
     }
+
 
 
 }

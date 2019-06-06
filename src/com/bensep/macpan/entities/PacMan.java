@@ -25,12 +25,12 @@ public class PacMan extends Entity {
         animation = Animations.getInstance().pacMan;
         direction = Direction.LEFT;
         this.speed = speed;
-        freezeTimer = 60;
     }
 
     @Override
     public void update() {
         gameWorld.hitEntity(getCenter(), 1, dmgCollide);
+        super.update();
     }
 
     @Override
