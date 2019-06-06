@@ -3,8 +3,10 @@ package com.bensep.macpan.gameWorld;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.bensep.macpan.entities.Energizer;
+import com.bensep.macpan.entities.Ghost;
 import com.bensep.macpan.entities.PacMan;
 import com.bensep.macpan.entities.Pallet;
+import com.bensep.macpan.handlers.Personality;
 import com.bensep.macpan.myGameLib.GameObject;
 import com.bensep.macpan.myGameLib.GameWorld;
 import com.bensep.macpan.tesxtures.Textures;
@@ -24,6 +26,7 @@ public class PacManMaze extends GameWorld {
         loadGrid();
         pacMan = new PacMan(13.5f, 9, this, .8f);
         entities.add(pacMan);
+        entities.add(new Ghost(new Personality(), this,.75f));
     }
 
     public void loadGrid() {
@@ -45,7 +48,7 @@ public class PacManMaze extends GameWorld {
                             setGridAt(x,y,false, Textures.getInstance().empty);
                             break;
                         case "7_2":
-                            worldGrid[x][y] = new WorlPart(x, y, GameObject.IN2, Textures.getInstance().barrier);
+                            worldGrid[x][y] = new WorldPart(x, y, GameObject.IN2, Textures.getInstance().barrier);
                             break;
                             default:
                                 setGridAt(x,y,true, Textures.getInstance().maze[Character.getNumericValue(strings[x].charAt(0))][Character.getNumericValue(strings[x].charAt(2))]);
@@ -71,9 +74,9 @@ public class PacManMaze extends GameWorld {
 
     public void setGridAt(int x, int y, boolean collide, TextureRegion textureRegion) {
         if (collide)
-            worldGrid[x][y] = new WorlPart(x, y, GameObject.IN1, textureRegion);
+            worldGrid[x][y] = new WorldPart(x, y, GameObject.IN1, textureRegion);
         else
-            worldGrid[x][y] = new WorlPart(x, y, (byte) 0, textureRegion);
+            worldGrid[x][y] = new WorldPart(x, y, (byte) 0, textureRegion);
     }
 
     public PacMan getPacMan() {

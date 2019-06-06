@@ -23,6 +23,7 @@ public class Textures {
     public TextureRegion[] pacManWalk;
     public TextureRegion empty;
     public TextureRegion barrier;
+    public TextureRegion[] clyde;
 
 
     public void loadTextures() {
@@ -40,7 +41,11 @@ public class Textures {
         for (int i = 0; i < pacManWalk.length; i++) {
             pacManWalk[i] = ResourceHandler.getInstance().getAtlas("Entities").findRegion("PacMan_Walk", i);
         }
-
+        clyde = new TextureRegion[4];
+        clyde[0] = ResourceHandler.getInstance().getAtlas("Entities").findRegion("Clyde_Up");
+        clyde[1] = ResourceHandler.getInstance().getAtlas("Entities").findRegion("Clyde_Left");
+        clyde[2] = ResourceHandler.getInstance().getAtlas("Entities").findRegion("Clyde_Down");
+        clyde[3] = ResourceHandler.getInstance().getAtlas("Entities").findRegion("Clyde_Right");
     }
 
 

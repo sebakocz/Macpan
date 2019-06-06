@@ -63,6 +63,8 @@ public class InputHandler extends InputAdapter {
     }
 
     public Direction getDirection() {
-        return direction;
+        Direction back = direction;
+        direction = NONE;
+        return back;
     }
 }

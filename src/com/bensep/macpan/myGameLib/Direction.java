@@ -1,7 +1,7 @@
 package com.bensep.macpan.myGameLib;
 
 public enum Direction {
-    UP, DOWN, LEFT, RIGHT, NONE;
+    UP, LEFT, DOWN, RIGHT, NONE;
 
     @Override
     public String toString() {
