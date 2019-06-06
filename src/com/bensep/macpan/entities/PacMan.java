@@ -19,12 +19,14 @@ public class PacMan extends Entity {
     private float speedBoostTimer;
     private float speedBuffer;
     private float freezeTimer;
+    private int lives;
 
     public PacMan(float x, float y, PacManMaze gameWorld, float speed) {
         super(x * TILE_SIZE, y * TILE_SIZE, 8, 8, -4, -4, (byte) (OUT1 | OUT2), (byte) (OUT1 | IN2), null, 1, 1, gameWorld);
         animation = Animations.getInstance().pacMan;
         direction = Direction.LEFT;
         this.speed = speed;
+        lives = 2;
     }
 
     @Override
@@ -137,5 +139,13 @@ public class PacMan extends Entity {
             speedBoost = speed;
             speedBoostTimer = time;
         }
+    }
+
+    public int getLives() {
+        return lives;
+    }
+
+    public void setLives(int lives) {
+        this.lives = lives;
     }
 }

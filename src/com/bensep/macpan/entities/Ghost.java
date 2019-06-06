@@ -8,6 +8,7 @@ import com.bensep.macpan.myGameLib.Entity;
 import com.bensep.macpan.myGameLib.GameWorld;
 
 import static com.bensep.macpan.constants.Constants.TILE_SIZE;
+import static com.bensep.macpan.constants.Constants.GHOST_PRECISION;
 
 public class Ghost extends Entity {
 
@@ -59,9 +60,9 @@ public class Ghost extends Entity {
             } else {
                 speedBuffer += speed;
             }
-            while (speedBuffer >= .0625f) {
+            while (speedBuffer >= GHOST_PRECISION) {
                 handleWalk();
-                speedBuffer-=.0625f;
+                speedBuffer-=GHOST_PRECISION;
             }
         }
     }
@@ -70,16 +71,16 @@ public class Ghost extends Entity {
         turn = false;
         switch (newDirection) {
             case UP:
-                turn = translate(0f, .0625f);
+                turn = translate(0f, GHOST_PRECISION);
                 break;
             case DOWN:
-                turn = translate(0f, -.0625f);
+                turn = translate(0f, -GHOST_PRECISION);
                 break;
             case LEFT:
-                turn = translate(-.0625f, 0f);
+                turn = translate(-GHOST_PRECISION, 0f);
                 break;
             case RIGHT:
-                turn = translate(.0625f, 0f);
+                turn = translate(GHOST_PRECISION, 0f);
                 break;
         }
         if (turn) {
@@ -87,16 +88,16 @@ public class Ghost extends Entity {
         } else {
             switch (direction) {
                 case UP:
-                    translate(0f, .0625f);
+                    translate(0f, GHOST_PRECISION);
                     break;
                 case DOWN:
-                    translate(0f, -.0625f);
+                    translate(0f, -GHOST_PRECISION);
                     break;
                 case LEFT:
-                    translate(-.0625f, 0f);
+                    translate(-GHOST_PRECISION, 0f);
                     break;
                 case RIGHT:
-                    translate(.0625f, 0f);
+                    translate(GHOST_PRECISION, 0f);
                     break;
             }
         }
