@@ -41,56 +41,39 @@ public class PacManMaze extends GameWorld {
     }
 
     public void loadGrid() {
-        //try {
-        //    Scanner scanner = new Scanner(new File("res/Level/Level1"));
-        //    for (int y = 0; y < WORLD_HEIGHT; y++) {
-        //        String[] strings = scanner.nextLine().split(",");
-        //        for (int x = 0; x < WORLD_WIDTH; x++) {
-        //            switch (strings[x]) {
-        //                case "pallet":
-        //                    setGridAt(x,y,false, Textures.getInstance().empty);
-        //                    spawnEntity(new Pallet(x,y,this));
-        //                    break;
-        //                case "energizer":
-        //                    setGridAt(x,y,false, Textures.getInstance().empty);
-        //                    spawnEntity(new Energizer(x,y,this));
-        //                    break;
-        //                case "7_3":
-        //                    setGridAt(x,y,false, Textures.getInstance().empty);
-        //                    break;
-        //                case "7_2":
-        //                    worldGrid[x][y] = new WorldPart(x, y, GameObject.IN2, Textures.getInstance().barrier);
-        //                    break;
-        //                    default:
-        //                        setGridAt(x,y,true, Textures.getInstance().maze[Character.getNumericValue(strings[x].charAt(0))][Character.getNumericValue(strings[x].charAt(2))]);
-        //                        break;
-        //            }
-        //        }
-        //    }
-        //} catch (FileNotFoundException e) {
-        //    e.printStackTrace();
-        //}
         try {
             Scanner scanner = new Scanner(new File("res/Level/Level1Maze"));
+            String tile;
             for (int y = 0; y < WORLD_HEIGHT; y++) {
-                String[] strings = scanner.nextLine().split(",");
                 for (int x = 0; x < WORLD_WIDTH; x++) {
-                    switch (strings[x]) {
-                        case "7_4":
+                    tile = scanner.next();
+                    switch (tile) {
+                        case "74":
                             worldGrid[x][y] = new RestrictedWorldPart(x, y, (byte) 0, Textures.getInstance().empty,(byte) (Entity.OUT1 | Entity.OUT2 | Entity.OUT3));
                             break;
-                        case "7_5":
+                        case "75":
                             worldGrid[x][y] = new BoostWorldPart(x, y, (byte) 0, Textures.getInstance().empty, this);
                             break;
-                        case "7_3":
+                        case "73":
                             setGridAt(x,y,false, Textures.getInstance().empty);
                             break;
-                        case "7_2":
+                        case "72":
                             worldGrid[x][y] = new WorldPart(x, y, GameObject.IN2, Textures.getInstance().barrier);
                             break;
                         default:
-                            setGridAt(x,y,true, Textures.getInstance().maze[Character.getNumericValue(strings[x].charAt(0))][Character.getNumericValue(strings[x].charAt(2))]);
+                            setGridAt(x,y,true, Textures.getInstance().maze[Character.getNumericValue(tile.charAt(0))][Character.getNumericValue(tile.charAt(1))]);
                             break;
+                    }
+                }
+            }
+            for (int y = 0; y < WORLD_HEIGHT; y++) {
+                for (int x = 0; x < WORLD_WIDTH; x++) {
+                    switch (scanner.next()) {
+                        case "1":
+                            spawnEntity(new Pallet(x,y,this));
+                            break;
+                        case "2":
+                            spawnEntity(new Energizer(x,y,this));
                     }
                 }
             }

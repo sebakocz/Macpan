@@ -42,7 +42,6 @@ public class Ghost extends Entity {
         }
         currentTile = (WorldPart) gameWorld.getTileAt(getCenter().x, center.y);
         gameWorld.hitEntity(getCenter(), 1, dmgCollide);
-        System.out.println(getPos());
         super.update();
     }
 
@@ -60,9 +59,9 @@ public class Ghost extends Entity {
             } else {
                 speedBuffer += speed;
             }
-            while (speedBuffer >= .125f) {
+            while (speedBuffer >= .0625f) {
                 handleWalk();
-                speedBuffer-=.125f;
+                speedBuffer-=.0625f;
             }
         }
     }
@@ -71,16 +70,16 @@ public class Ghost extends Entity {
         turn = false;
         switch (newDirection) {
             case UP:
-                turn = translate(0f, .125f);
+                turn = translate(0f, .0625f);
                 break;
             case DOWN:
-                turn = translate(0f, -.125f);
+                turn = translate(0f, -.0625f);
                 break;
             case LEFT:
-                turn = translate(-.125f, 0f);
+                turn = translate(-.0625f, 0f);
                 break;
             case RIGHT:
-                turn = translate(.125f, 0f);
+                turn = translate(.0625f, 0f);
                 break;
         }
         if (turn) {
@@ -88,16 +87,16 @@ public class Ghost extends Entity {
         } else {
             switch (direction) {
                 case UP:
-                    translate(0f, .125f);
+                    translate(0f, .0625f);
                     break;
                 case DOWN:
-                    translate(0f, -.125f);
+                    translate(0f, -.0625f);
                     break;
                 case LEFT:
-                    translate(-.125f, 0f);
+                    translate(-.0625f, 0f);
                     break;
                 case RIGHT:
-                    translate(.125f, 0f);
+                    translate(.0625f, 0f);
                     break;
             }
         }
