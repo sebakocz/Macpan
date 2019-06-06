@@ -60,9 +60,9 @@ public class Ghost extends Entity {
             } else {
                 speedBuffer += speed;
             }
-            while (speedBuffer >= .5f) {
+            while (speedBuffer >= .125f) {
                 handleWalk();
-                speedBuffer-=.5f;
+                speedBuffer-=.125f;
             }
         }
     }
@@ -71,16 +71,16 @@ public class Ghost extends Entity {
         turn = false;
         switch (newDirection) {
             case UP:
-                turn = translate(0f, .5f);
+                turn = translate(0f, .125f);
                 break;
             case DOWN:
-                turn = translate(0f, -.5f);
+                turn = translate(0f, -.125f);
                 break;
             case LEFT:
-                turn = translate(-.5f, 0f);
+                turn = translate(-.125f, 0f);
                 break;
             case RIGHT:
-                turn = translate(.5f, 0f);
+                turn = translate(.125f, 0f);
                 break;
         }
         if (turn) {
@@ -88,16 +88,16 @@ public class Ghost extends Entity {
         } else {
             switch (direction) {
                 case UP:
-                    translate(0f, .5f);
+                    translate(0f, .125f);
                     break;
                 case DOWN:
-                    translate(0f, -.5f);
+                    translate(0f, -.125f);
                     break;
                 case LEFT:
-                    translate(-.5f, 0f);
+                    translate(-.125f, 0f);
                     break;
                 case RIGHT:
-                    translate(.5f, 0f);
+                    translate(.125f, 0f);
                     break;
             }
         }
