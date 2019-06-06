@@ -3,6 +3,7 @@ package com.bensep.macpan.handlers;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
+import com.bensep.macpan.gameWorld.PacManMaze;
 import com.bensep.macpan.myGameLib.Direction;
 import com.bensep.macpan.tesxtures.Animations;
 import com.bensep.macpan.tesxtures.Textures;
@@ -14,12 +15,14 @@ public class Personality {
     private float yStartPos;
     private TextureRegion[] textures;
     private Vector2 targetTile;
+    private PacManMaze maze;
 
-    public Personality() {
+    public Personality(PacManMaze maze) {
         targetTile = new Vector2(0f, 0f);
         textures = Textures.getInstance().clyde;
         xStartPos = 14 * TILE_SIZE;
         yStartPos = 21 * TILE_SIZE;
+        this.maze = maze;
     }
 
     public float getXStartPos() {
@@ -46,5 +49,9 @@ public class Personality {
 
     public Vector2 getTargetTile() {
         return targetTile;
+    }
+
+    public void update() {
+        targetTile = maze.getTileAt(maze.getPacMan().getCenter().x, maze.getPacMan().getCenter().y).getPos();
     }
 }

@@ -37,6 +37,7 @@ public class Game implements ApplicationListener {
         initResources();
         gsm = new GameStateManager(this);
         Gdx.input.setInputProcessor(InputHandler.getInstance());
+        InputHandler.getInstance().setDifficulty(InputHandler.Difficulty.EASY);
     }
 
     @Override

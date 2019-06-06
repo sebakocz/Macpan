@@ -26,7 +26,7 @@ public class PacManMaze extends GameWorld {
         loadGrid();
         pacMan = new PacMan(13.5f, 9, this, .8f);
         entities.add(pacMan);
-        entities.add(new Ghost(new Personality(), this,.75f));
+        entities.add(new Ghost(new Personality(this), this, .75f));
     }
 
     public void loadGrid() {

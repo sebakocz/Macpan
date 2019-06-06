@@ -3,8 +3,6 @@ package com.bensep.macpan.handlers;
 import com.badlogic.gdx.InputAdapter;
 import com.bensep.macpan.myGameLib.Direction;
 
-import java.util.Stack;
-
 import static com.bensep.macpan.constants.Constants.*;
 import static com.bensep.macpan.myGameLib.Direction.*;
 
@@ -12,9 +10,11 @@ public class InputHandler extends InputAdapter {
 
     private static InputHandler instance;
     private Direction direction;
+    private Difficulty difficulty;
 
     private InputHandler() {
         direction = NONE;
+        difficulty = Difficulty.NORMAL;
     }
 
     public static InputHandler getInstance() {
@@ -63,8 +63,22 @@ public class InputHandler extends InputAdapter {
     }
 
     public Direction getDirection() {
-        Direction back = direction;
-        direction = NONE;
-        return back;
+        switch (difficulty) {
+            case EASY:
+                return direction;
+            default:
+                Direction back = direction;
+                direction = NONE;
+                return back;
+        }
     }
+
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public enum Difficulty {
+        EASY, NORMAL
+    }
+
 }

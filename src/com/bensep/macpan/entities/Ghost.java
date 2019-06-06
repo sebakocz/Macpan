@@ -37,6 +37,7 @@ public class Ghost extends Entity {
     @Override
     public void update() {
         if (currentTile != (WorldPart) gameWorld.getTileAt(getCenter().x, center.y)) {
+            personality.update();
             handleDecision();
         }
         currentTile = (WorldPart) gameWorld.getTileAt(getCenter().x, center.y);
@@ -101,54 +102,55 @@ public class Ghost extends Entity {
 
     private void handleDecision() {
         int counter = 0;
-        for (Direction d : Direction.values()) {
-            if (!direction.opposing(d)) {
-                switch (d) {
-                    case UP:
-                        if (!gameWorld.checkCollide(getCenter().x, center.y + TILE_SIZE, collide)) {
-                            options[counter] = gameWorld.getTileAt(center.x, center.y + TILE_SIZE).getPos().dst(personality.getTargetTile());
-                        } else options[counter] = -1;
-                        break;
-                    case LEFT:
-                        if (!gameWorld.checkCollide(getCenter().x - TILE_SIZE, center.y, collide)) {
-                            options[counter] = gameWorld.getTileAt(center.x - TILE_SIZE, center.y).getPos().dst(personality.getTargetTile());
-                        } else options[counter] = -1;
-                        break;
-                    case DOWN:
-                        if (!gameWorld.checkCollide(getCenter().x, center.y - TILE_SIZE, collide)) {
-                            options[counter] = gameWorld.getTileAt(center.x, center.y - TILE_SIZE).getPos().dst(personality.getTargetTile());
-                        } else options[counter] = -1;
-                        break;
-                    case RIGHT:
-                        if (!gameWorld.checkCollide(getCenter().x + TILE_SIZE, center.y, collide)) {
-                            options[counter] = gameWorld.getTileAt(center.x + TILE_SIZE, center.y).getPos().dst(personality.getTargetTile());
-                        } else options[counter] = -1;
-                        break;
-                }
-            } else options[counter] = -1;
-            counter++;
-        }
-        float bestOption = 365f;
-        for (counter = 0; counter < 4; counter++) {
-            if (options[counter] < bestOption && options[counter] != -1) {
-                bestOption = options[counter];
-                switch (counter) {
-                    case 0:
-                        newDirection = Direction.UP;
-                        break;
-                    case 1:
-                        newDirection = Direction.LEFT;
-                        break;
-                    case 2:
-                        newDirection = Direction.DOWN;
-                        break;
-                    case 3:
-                        newDirection = Direction.RIGHT;
-                        break;
+        try {
+            for (Direction d : Direction.values()) {
+                if (!direction.opposing(d)) {
+                    switch (d) {
+                        case UP:
+                            if (!gameWorld.checkCollide(getCenter().x, center.y + TILE_SIZE, collide)) {
+                                options[counter] = gameWorld.getTileAt(center.x, center.y + TILE_SIZE).getPos().dst(personality.getTargetTile());
+                            } else options[counter] = -1;
+                            break;
+                        case LEFT:
+                            if (!gameWorld.checkCollide(getCenter().x - TILE_SIZE, center.y, collide)) {
+                                options[counter] = gameWorld.getTileAt(center.x - TILE_SIZE, center.y).getPos().dst(personality.getTargetTile());
+                            } else options[counter] = -1;
+                            break;
+                        case DOWN:
+                            if (!gameWorld.checkCollide(getCenter().x, center.y - TILE_SIZE, collide)) {
+                                options[counter] = gameWorld.getTileAt(center.x, center.y - TILE_SIZE).getPos().dst(personality.getTargetTile());
+                            } else options[counter] = -1;
+                            break;
+                        case RIGHT:
+                            if (!gameWorld.checkCollide(getCenter().x + TILE_SIZE, center.y, collide)) {
+                                options[counter] = gameWorld.getTileAt(center.x + TILE_SIZE, center.y).getPos().dst(personality.getTargetTile());
+                            } else options[counter] = -1;
+                            break;
+                    }
+                } else options[counter] = -1;
+                counter++;
+            }
+            float bestOption = 365f;
+            for (counter = 0; counter < 4; counter++) {
+                if (options[counter] < bestOption && options[counter] != -1) {
+                    bestOption = options[counter];
+                    switch (counter) {
+                        case 0:
+                            newDirection = Direction.UP;
+                            break;
+                        case 1:
+                            newDirection = Direction.LEFT;
+                            break;
+                        case 2:
+                            newDirection = Direction.DOWN;
+                            break;
+                        case 3:
+                            newDirection = Direction.RIGHT;
+                            break;
+                    }
                 }
             }
-        }
-
+        } catch (Exception ignored) {}
     }
 
     public void setSpeed(float speed, float time) {

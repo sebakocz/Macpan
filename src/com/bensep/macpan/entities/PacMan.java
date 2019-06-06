@@ -1,16 +1,12 @@
 package com.bensep.macpan.entities;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.MathUtils;
 import com.bensep.macpan.gameWorld.PacManMaze;
 import com.bensep.macpan.handlers.InputHandler;
 import com.bensep.macpan.myGameLib.Direction;
 import com.bensep.macpan.myGameLib.Entity;
 import com.bensep.macpan.tesxtures.Animations;
-
-import java.util.Stack;
 
 import static com.bensep.macpan.constants.Constants.*;
 
