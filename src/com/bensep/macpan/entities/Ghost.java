@@ -144,6 +144,10 @@ public class Ghost extends Entity {
         }else{
             switch (state) {
             case DEAD:
+                System.out.println(gameWorld.getTileAt(getCenter().x, center.y)+" - "+gameWorld.getTileAt(personality.getTargetTile().x, personality.getTargetTile().y));
+                if (gameWorld.getTileAt(getCenter().x, center.y) == gameWorld.getTileAt(personality.getTargetTile().x, personality.getTargetTile().y)) {
+                    setState(State.HOUSE);
+                }
             case CHASE:
             case SCATTER:
                 try {
@@ -216,7 +220,7 @@ public class Ghost extends Entity {
                     }
 
                 break;
-                case House:
+                case HOUSE:
                 break;
             }
 
@@ -295,6 +299,6 @@ public class Ghost extends Entity {
         SCATTER,
         FRIGHTENED,
         DEAD,
-        House
+        HOUSE
     }
 }
