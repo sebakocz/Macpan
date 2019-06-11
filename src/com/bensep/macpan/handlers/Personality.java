@@ -50,7 +50,7 @@ public class Personality {
             case FRIGHTENED:
                 break;
             case DEAD:
-                targetTile = maze.getTileAt(14 * TILE_SIZE, 19 * TILE_SIZE).getPos();
+                targetTile = maze.getTileAt(14 * TILE_SIZE, 17 * TILE_SIZE).getPos();
                 break;
             case House:
                 break;

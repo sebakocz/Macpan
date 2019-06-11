@@ -17,7 +17,8 @@ public class BoostWorldPart extends WorldPart {
         for (GameObject gameObject:holdingObjects
              ) {
             try {
-                ((Ghost) gameObject).setSpeed(gameWorld.getGhostTunnelSpeed(), 1f);
+                if (((Ghost) gameObject).getState() != Ghost.State.DEAD)
+                    ((Ghost) gameObject).setSpeed(gameWorld.getGhostTunnelSpeed(), 1f);
             } catch (Exception ignored) {}
         }
         super.update();

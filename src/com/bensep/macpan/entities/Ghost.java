@@ -286,6 +286,10 @@ public class Ghost extends Entity {
         health = 1;
     }
 
+    public State getState() {
+        return state;
+    }
+
     public enum State {
         CHASE,
         SCATTER,
