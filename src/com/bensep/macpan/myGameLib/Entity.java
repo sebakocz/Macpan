@@ -6,13 +6,13 @@ import com.badlogic.gdx.math.Vector2;
 
 public abstract class Entity extends GameObject {
 
-    protected double health;
-    protected double maxHealth;
+    protected float health;
+    protected float maxHealth;
     protected byte dmgCollide;
     protected GameWorld gameWorld;
     private Vector2 lastPos;
 
-    public Entity(float x, float y, float with, float height, float xTextureOffset, float yTextureOffset, byte collide, byte dmgCollide, TextureRegion texture, double maxHealth, double health, GameWorld gameWorld) {
+    public Entity(float x, float y, float with, float height, float xTextureOffset, float yTextureOffset, byte collide, byte dmgCollide, TextureRegion texture, float maxHealth, float health, GameWorld gameWorld) {
         super(x, y, with, height, xTextureOffset, yTextureOffset, collide, texture);
         this.gameWorld = gameWorld;
         this.health = health;

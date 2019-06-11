@@ -23,7 +23,9 @@ public class Textures {
     public TextureRegion[] pacManWalk;
     public TextureRegion empty;
     public TextureRegion barrier;
-    public TextureRegion[] clyde;
+    public TextureRegion frightened;
+    public TextureRegion clyde;
+    public TextureRegion[] eyes;
 
 
     public void loadTextures() {
@@ -41,11 +43,13 @@ public class Textures {
         for (int i = 0; i < pacManWalk.length; i++) {
             pacManWalk[i] = ResourceHandler.getInstance().getAtlas("Entities").findRegion("PacMan_Walk", i);
         }
-        clyde = new TextureRegion[4];
-        clyde[0] = ResourceHandler.getInstance().getAtlas("Entities").findRegion("Clyde_Up");
-        clyde[1] = ResourceHandler.getInstance().getAtlas("Entities").findRegion("Clyde_Left");
-        clyde[2] = ResourceHandler.getInstance().getAtlas("Entities").findRegion("Clyde_Down");
-        clyde[3] = ResourceHandler.getInstance().getAtlas("Entities").findRegion("Clyde_Right");
+        frightened = ResourceHandler.getInstance().getAtlas("Entities").findRegion("Fright");
+        clyde = ResourceHandler.getInstance().getAtlas("Entities").findRegion("Clyde");
+        eyes = new TextureRegion[4];
+        eyes[0] = ResourceHandler.getInstance().getAtlas("Entities").findRegion("Ghost_Eyes_Up");
+        eyes[1] = ResourceHandler.getInstance().getAtlas("Entities").findRegion("Ghost_Eyes_Left");
+        eyes[2] = ResourceHandler.getInstance().getAtlas("Entities").findRegion("Ghost_Eyes_Down");
+        eyes[3] = ResourceHandler.getInstance().getAtlas("Entities").findRegion("Ghost_Eyes_Right");
     }
 
 

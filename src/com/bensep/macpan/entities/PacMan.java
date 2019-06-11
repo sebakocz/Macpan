@@ -27,6 +27,7 @@ public class PacMan extends Entity {
         direction = Direction.LEFT;
         this.speed = speed;
         lives = 2;
+        freezeTimer = 60;
     }
 
     @Override

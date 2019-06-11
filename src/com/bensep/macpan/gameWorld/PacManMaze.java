@@ -21,11 +21,13 @@ import static com.bensep.macpan.constants.Constants.*;
 public class PacManMaze extends GameWorld {
 
     private PacMan pacMan;
+    private Ghost[] ghosts;
     private float pacManSpeed;
     private float pacManBoostSpeed;
     private float ghostSpeed;
     private float ghostTunnelSpeed;
     private float ghostFrightSpeed;
+    private int freeze;
 
     public PacManMaze() {
         super(WORLD_WIDTH, WORLD_HEIGHT, TILE_SIZE);
@@ -35,9 +37,12 @@ public class PacManMaze extends GameWorld {
         ghostSpeed = .75f;
         ghostTunnelSpeed = .4f;
         ghostFrightSpeed = .5f;
+        freeze = 0;
         pacMan = new PacMan(13.5f, 9, this, .8f);
         entities.add(pacMan);
-        entities.add(new Ghost(new Personality(this), this, .75f));
+        ghosts = new Ghost[4];
+        ghosts[0] = new Ghost(new Personality(this), this, .75f);
+        entities.add(ghosts[0]);
     }
 
     public void loadGrid() {
@@ -93,6 +98,15 @@ public class PacManMaze extends GameWorld {
         entities.forEach(entity -> entity.render(spriteBatch));
     }
 
+    @Override
+    public void update() {
+        if (freeze <= 0) {
+            super.update();
+        } else {
+            freeze--;
+        }
+    }
+
     public void setGridAt(int x, int y, boolean collide, TextureRegion textureRegion) {
         if (collide)
             worldGrid[x][y] = new WorldPart(x, y, GameObject.IN1, textureRegion);
@@ -122,5 +136,13 @@ public class PacManMaze extends GameWorld {
 
     public float getGhostFrightSpeed() {
         return ghostFrightSpeed;
+    }
+
+    public void setGhostState(Ghost.State state) {
+        ghosts[0].setState(state);
+    }
+
+    public void freeze(int frames) {
+        freeze += frames;
     }
 }

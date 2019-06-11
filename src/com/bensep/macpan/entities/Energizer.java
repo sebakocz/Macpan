@@ -19,6 +19,7 @@ public class Energizer extends Entity {
     public void onDeath() {
         ((PacManMaze) gameWorld).getPacMan().stop(3f);
         ((PacManMaze) gameWorld).getPacMan().setSpeed(.9f,600);
+        ((PacManMaze) gameWorld).setGhostState(Ghost.State.FRIGHTENED);
         super.onDeath();
     }
 

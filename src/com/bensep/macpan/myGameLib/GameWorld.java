@@ -54,7 +54,10 @@ public abstract class GameWorld extends Rectangle{
     }
 
     public boolean checkCollide(float x, float y, byte Collide) {
-        return worldGrid[(int) (x / tileSize)][(int) (y / tileSize)].checkCollide(Collide);
+        try {
+            return worldGrid[(int) (x / tileSize)][(int) (y / tileSize)].checkCollide(Collide);
+        } catch (Exception ignored) {}
+        return false;
     }
 
     public boolean hitEntity(Rectangle dmdArea, float amount, byte dmgCollide) {
