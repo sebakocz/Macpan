@@ -29,6 +29,7 @@ public class Ghost extends Entity {
     private float freezeTimer;
     private float[] options;
     private boolean turn;
+    private int frightened;
     private TextureRegion[] eyes;
 
 
@@ -36,20 +37,29 @@ public class Ghost extends Entity {
         super(personality.getXStartPos(), personality.getYStartPos(), TILE_SIZE, TILE_SIZE, -4, -4, (byte) (OUT1 | OUT2 | OUT3), OUT2, Textures.getInstance().frightened, 1, 1, gameWorld);
         this.personality = personality;
         currentTile = (WorldPart) gameWorld.getTileAt(getCenter().x, center.y);
-        direction = Direction.LEFT;
+        direction = Direction.DOWN;
         newDirection = Direction.NONE;
         this.speed = speed;
         options = new float[4];
         freezeTimer = 60;
         state = State.CHASE;
         eyes = Textures.getInstance().eyes;
+        personality.setGhost(this);
+        frightened = -1;
     }
 
     @Override
     public void update() {
-        if (currentTile != (WorldPart) gameWorld.getTileAt(getCenter().x, center.y)) {
+        if (currentTile != gameWorld.getTileAt(getCenter().x, center.y)) {
             personality.update(state);
             handleDecision();
+        }
+        if (frightened > 0) {
+            frightened--;
+        }
+        if (frightened == 0) {
+            setState(State.CHASE, 0);
+            frightened--;
         }
         currentTile = (WorldPart) gameWorld.getTileAt(getCenter().x, center.y);
         gameWorld.hitEntity(getCenter(), 1, dmgCollide);
@@ -144,9 +154,11 @@ public class Ghost extends Entity {
         }else{
             switch (state) {
             case DEAD:
-                System.out.println(gameWorld.getTileAt(getCenter().x, center.y)+" - "+gameWorld.getTileAt(personality.getTargetTile().x, personality.getTargetTile().y));
                 if (gameWorld.getTileAt(getCenter().x, center.y) == gameWorld.getTileAt(personality.getTargetTile().x, personality.getTargetTile().y)) {
-                    setState(State.HOUSE);
+                    setState(State.HOUSE,0);
+                    direction = Direction.UP;
+                    newDirection = Direction.UP;
+                    break;
                 }
             case CHASE:
             case SCATTER:
@@ -204,7 +216,7 @@ public class Ghost extends Entity {
                     newDirection = Direction.getRandom();
                     if (checkCollision(newDirection)||direction.opposing(newDirection)) {
                         newDirection = Direction.UP;
-                        while (checkCollision(newDirection)||direction.opposing(newDirection)) {
+                        while ((checkCollision(newDirection)||direction.opposing(newDirection))&&newDirection!=Direction.NONE) {
                             switch (newDirection) {
                                 case UP:
                                     newDirection = Direction.LEFT;
@@ -215,6 +227,8 @@ public class Ghost extends Entity {
                                 case DOWN:
                                     newDirection = Direction.RIGHT;
                                     break;
+                                case RIGHT:
+                                    newDirection = Direction.NONE;
                             }
                         }
                     }
@@ -251,18 +265,19 @@ public class Ghost extends Entity {
         }
     }
 
-    public void setState(State state) {
+    public void setState(State state, int frames) {
         oldState = this.state;
         this.state = state;
         switch (state) {
             case FRIGHTENED:
+                frightened += frames + 1;
                 speed = ((PacManMaze) gameWorld).getGhostFrightSpeed();
                 collide = (byte) (OUT1 | OUT2);
                 dmgCollide = IN1;
                 break;
             case DEAD:
-                speed = 1f;
-                collide = (byte) (OUT1);
+                speed = 2f;
+                collide = OUT1;
                 dmgCollide = 0;
                 break;
             default:
@@ -286,12 +301,18 @@ public class Ghost extends Entity {
     @Override
     public void onDeath() {
         ((PacManMaze) gameWorld).freeze(30);
-        setState(State.DEAD);
+        setState(State.DEAD, 0);
+        frightened = -1;
         health = 1;
     }
 
     public State getState() {
         return state;
+    }
+
+    public void overwriteDirection(Direction direction) {
+        newDirection = direction;
+        this.direction = direction;
     }
 
     public enum State {

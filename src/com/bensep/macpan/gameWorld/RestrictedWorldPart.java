@@ -3,8 +3,8 @@ package com.bensep.macpan.gameWorld;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class RestrictedWorldPart extends WorldPart {
-    public RestrictedWorldPart(float x, float y, byte collide, TextureRegion texture, byte restricted) {
-        super(x, y, collide, texture);
+    public RestrictedWorldPart(float x, float y, TextureRegion texture, byte restricted) {
+        super(x, y, (byte) 0, texture);
         this.restricted = restricted;
     }
 
@@ -20,7 +20,7 @@ public class RestrictedWorldPart extends WorldPart {
 
     @Override
     public boolean checkCollide(byte collide) {
-        if (restricted != 0 && (restricted & collide) == restricted) {
+        if (restricted != 0 && (restricted & collide) >= 1) {
             return true;
         }
         return super.checkCollide(collide);

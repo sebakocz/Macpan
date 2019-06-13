@@ -7,6 +7,7 @@ import com.bensep.macpan.entities.Ghost;
 import com.bensep.macpan.entities.PacMan;
 import com.bensep.macpan.entities.Pallet;
 import com.bensep.macpan.handlers.Personality;
+import com.bensep.macpan.myGameLib.Direction;
 import com.bensep.macpan.myGameLib.Entity;
 import com.bensep.macpan.myGameLib.GameObject;
 import com.bensep.macpan.myGameLib.GameWorld;
@@ -54,7 +55,7 @@ public class PacManMaze extends GameWorld {
                     tile = scanner.next();
                     switch (tile) {
                         case "74":
-                            worldGrid[x][y] = new RestrictedWorldPart(x, y, (byte) 0, Textures.getInstance().empty,(byte) (Entity.OUT1 | Entity.OUT2 | Entity.OUT3));
+                            worldGrid[x][y] = new RestrictedWorldPart(x, y, Textures.getInstance().empty,GameObject.OUT3);
                             break;
                         case "75":
                             worldGrid[x][y] = new BoostWorldPart(x, y, (byte) 0, Textures.getInstance().empty, this);
@@ -63,13 +64,33 @@ public class PacManMaze extends GameWorld {
                             setGridAt(x,y,false, Textures.getInstance().empty);
                             break;
                         case "72":
-                            worldGrid[x][y] = new WorldPart(x, y, GameObject.IN2, Textures.getInstance().barrier);
+                            worldGrid[x][y] = new SetDirectionPart(x, y, Textures.getInstance().barrier, (GameObject.OUT2), Direction.UP);
+                            break;
+                        case "80":
+                            worldGrid[x][y] = new SetDirectionPart(x, y, Textures.getInstance().empty, (GameObject.OUT2), Direction.UP);
+                            break;
+                        case "81":
+                            worldGrid[x][y] = new SetDirectionPart(x, y, Textures.getInstance().empty, (GameObject.OUT2), Direction.DOWN);
+                            break;
+                        case "82":
+                            worldGrid[x][y] = new SetDirectionPart(x, y, Textures.getInstance().empty, (GameObject.OUT2), Direction.LEFT);
+                            break;
+                        case "83":
+                            worldGrid[x][y] = new SetDirectionPart(x, y, Textures.getInstance().empty, (GameObject.OUT2), Direction.RIGHT);
+                            break;
+                        case "84":
+                            worldGrid[x][y] = new SetDirectionPart(x, y, Textures.getInstance().empty, (GameObject.OUT2), Direction.NONE);
                             break;
                         default:
                             setGridAt(x,y,true, Textures.getInstance().maze[Character.getNumericValue(tile.charAt(0))][Character.getNumericValue(tile.charAt(1))]);
                             break;
                     }
                 }
+            }
+            try {
+
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             for (int y = 0; y < WORLD_HEIGHT; y++) {
                 for (int x = 0; x < WORLD_WIDTH; x++) {
@@ -139,7 +160,7 @@ public class PacManMaze extends GameWorld {
     }
 
     public void setGhostState(Ghost.State state) {
-        ghosts[0].setState(state);
+        ghosts[0].setState(state,600);
     }
 
     public void freeze(int frames) {

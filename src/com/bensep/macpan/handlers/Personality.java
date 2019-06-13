@@ -14,13 +14,16 @@ public class Personality {
     private TextureRegion texture;
     private Vector2 targetTile;
     private PacManMaze maze;
+    private Ghost ghost;
+    private byte deadState;
 
     public Personality(PacManMaze maze) {
         targetTile = new Vector2(0f, 0f);
         texture = Textures.getInstance().clyde;
-        xStartPos = 14 * TILE_SIZE;
-        yStartPos = 21 * TILE_SIZE;
+        xStartPos = 15.5f * TILE_SIZE;
+        yStartPos = 18 * TILE_SIZE;
         this.maze = maze;
+        deadState = 0;
     }
 
     public float getXStartPos() {
@@ -49,10 +52,33 @@ public class Personality {
             case FRIGHTENED:
                 break;
             case DEAD:
-                targetTile = maze.getTileAt(14 * TILE_SIZE, 17 * TILE_SIZE).getPos();
+                if (deadState >= 1) {
+                    if (deadState == 1) {
+                        targetTile = maze.getTileAt(13 * TILE_SIZE, 17 * TILE_SIZE).getPos();
+                    } else {
+                        targetTile = maze.getTileAt(14 * TILE_SIZE, 17 * TILE_SIZE).getPos();
+                    }
+                } else {
+                    if (maze.getTileAt(ghost.getCenter().x, ghost.getCenter().y).y == 21 * TILE_SIZE) {
+                        if (maze.getTileAt(ghost.getCenter().x, ghost.getCenter().y).x==13*TILE_SIZE) {
+                            deadState=1;
+                        } else if (maze.getTileAt(ghost.getCenter().x, ghost.getCenter().y).x == 14 * TILE_SIZE) {
+                            deadState=2;
+                        }
+                    }
+                    if (maze.getTileAt(ghost.getCenter().x, ghost.getCenter().y).x <= 13 * TILE_SIZE) {
+                        targetTile = maze.getTileAt(14 * TILE_SIZE, 21 * TILE_SIZE).getPos();
+                    } else {
+                        targetTile = maze.getTileAt(13 * TILE_SIZE, 21 * TILE_SIZE).getPos();
+                    }
+                }
                 break;
             case HOUSE:
                 break;
         }
+    }
+
+    public void setGhost(Ghost ghost) {
+        this.ghost = ghost;
     }
 }
