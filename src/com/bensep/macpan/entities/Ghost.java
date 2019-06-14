@@ -73,7 +73,7 @@ public class Ghost extends Entity {
                 super.render(spriteBatch);
                 return;
             default:
-                spriteBatch.draw(personality.getTexture(), x + xTextureOffset, y + yTextureOffset);
+                spriteBatch.draw(personality.getKeyFrame(), x + xTextureOffset, y + yTextureOffset);
             case DEAD:
                 switch (direction) {
                     case UP:
@@ -112,19 +112,21 @@ public class Ghost extends Entity {
 
     public void handleWalk() {
         turn = false;
-        switch (newDirection) {
-            case UP:
-                turn = translate(0f, GHOST_PRECISION);
-                break;
-            case DOWN:
-                turn = translate(0f, -GHOST_PRECISION);
-                break;
-            case LEFT:
-                turn = translate(-GHOST_PRECISION, 0f);
-                break;
-            case RIGHT:
-                turn = translate(GHOST_PRECISION, 0f);
-                break;
+        if (gameWorld.getTileAt(getCenter().x, center.y).y==y) {
+            switch (newDirection) {
+                case UP:
+                    turn = translate(0f, GHOST_PRECISION);
+                    break;
+                case DOWN:
+                    turn = translate(0f, -GHOST_PRECISION);
+                    break;
+                case LEFT:
+                    turn = translate(-GHOST_PRECISION, 0f);
+                    break;
+                case RIGHT:
+                    turn = translate(GHOST_PRECISION, 0f);
+                    break;
+            }
         }
         if (turn) {
             direction = newDirection;
@@ -155,7 +157,7 @@ public class Ghost extends Entity {
             switch (state) {
             case DEAD:
                 if (gameWorld.getTileAt(getCenter().x, center.y) == gameWorld.getTileAt(personality.getTargetTile().x, personality.getTargetTile().y)) {
-                    setState(State.HOUSE,0);
+                    setState(State.CHASE,0);
                     direction = Direction.UP;
                     newDirection = Direction.UP;
                     break;
@@ -232,9 +234,6 @@ public class Ghost extends Entity {
                             }
                         }
                     }
-
-                break;
-                case HOUSE:
                 break;
             }
 
@@ -319,7 +318,6 @@ public class Ghost extends Entity {
         CHASE,
         SCATTER,
         FRIGHTENED,
-        DEAD,
-        HOUSE
+        DEAD
     }
 }

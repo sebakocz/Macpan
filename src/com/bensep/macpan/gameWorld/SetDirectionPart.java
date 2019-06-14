@@ -1,5 +1,6 @@
 package com.bensep.macpan.gameWorld;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.bensep.macpan.entities.Ghost;
 import com.bensep.macpan.myGameLib.Direction;
@@ -18,8 +19,10 @@ public class SetDirectionPart extends RestrictedWorldPart {
         if (direction != Direction.NONE) {
             holdingObjects.forEach(object ->{
                 try {
-                    ((Ghost)object).overwriteDirection(direction);
-                }catch (Exception ignored){}
+                    if (restricted != 0 && (restricted & object.getCollide()) >= 1)
+                        ((Ghost) object).overwriteDirection(direction);
+                }catch (Exception ignored){
+                }
             });
         }
     }

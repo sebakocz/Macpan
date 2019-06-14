@@ -18,18 +18,18 @@ public class Textures {
         return instance;
     }
 
-    public TextureRegion pallet, energizer;
+    public TextureRegion dot, energizer;
     public TextureRegion[][] maze;
     public TextureRegion[] pacManWalk;
     public TextureRegion empty;
     public TextureRegion barrier;
     public TextureRegion frightened;
-    public TextureRegion clyde;
+    public TextureRegion[] clyde;
     public TextureRegion[] eyes;
 
 
     public void loadTextures() {
-        pallet = ResourceHandler.getInstance().getAtlas("Maze").findRegion("Pallet");
+        dot = ResourceHandler.getInstance().getAtlas("Maze").findRegion("Dot");
         energizer = ResourceHandler.getInstance().getAtlas("Maze").findRegion("Energizer");
         maze = new TextureRegion[8][8];
         for (int i = 0; i < maze.length; i++) {
@@ -44,7 +44,10 @@ public class Textures {
             pacManWalk[i] = ResourceHandler.getInstance().getAtlas("Entities").findRegion("PacMan_Walk", i);
         }
         frightened = ResourceHandler.getInstance().getAtlas("Entities").findRegion("Fright");
-        clyde = ResourceHandler.getInstance().getAtlas("Entities").findRegion("Clyde");
+        clyde = new TextureRegion[2];
+        for (int i = 0; i < 2; i++) {
+            clyde[i] = ResourceHandler.getInstance().getAtlas("Entities").findRegion("Clyde", i);
+        }
         eyes = new TextureRegion[4];
         eyes[0] = ResourceHandler.getInstance().getAtlas("Entities").findRegion("Ghost_Eyes_Up");
         eyes[1] = ResourceHandler.getInstance().getAtlas("Entities").findRegion("Ghost_Eyes_Left");

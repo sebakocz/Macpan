@@ -5,10 +5,9 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.bensep.macpan.entities.Energizer;
 import com.bensep.macpan.entities.Ghost;
 import com.bensep.macpan.entities.PacMan;
-import com.bensep.macpan.entities.Pallet;
+import com.bensep.macpan.entities.Dot;
 import com.bensep.macpan.handlers.Personality;
 import com.bensep.macpan.myGameLib.Direction;
-import com.bensep.macpan.myGameLib.Entity;
 import com.bensep.macpan.myGameLib.GameObject;
 import com.bensep.macpan.myGameLib.GameWorld;
 import com.bensep.macpan.tesxtures.Textures;
@@ -96,7 +95,7 @@ public class PacManMaze extends GameWorld {
                 for (int x = 0; x < WORLD_WIDTH; x++) {
                     switch (scanner.next()) {
                         case "1":
-                            spawnEntity(new Pallet(x,y,this));
+                            spawnEntity(new Dot(x,y,this));
                             break;
                         case "2":
                             spawnEntity(new Energizer(x,y,this));

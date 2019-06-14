@@ -6,238 +6,273 @@ filter: Nearest,Nearest
 repeat: none
 Apple
   rotate: false
-  xy: 74, 74
+  xy: 20, 38
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 Bell
   rotate: false
-  xy: 2, 20
+  xy: 56, 74
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 Blinky
   rotate: false
-  xy: 38, 20
+  xy: 38, 38
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
-  index: -1
-Cherry
+  index: 0
+Blinky
   rotate: false
   xy: 56, 56
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+Cherry
+  rotate: false
+  xy: 74, 56
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 Clyde
   rotate: false
-  xy: 56, 92
+  xy: 2, 110
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
-  index: -1
+  index: 0
+Clyde
+  rotate: false
+  xy: 2, 92
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
 Fright
   rotate: false
-  xy: 38, 74
+  xy: 2, 74
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
-  index: -1
+  index: 0
+Fright
+  rotate: false
+  xy: 20, 92
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
 Galaxian
   rotate: false
-  xy: 2, 56
+  xy: 56, 110
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 Ghost_Eyes_Down
   rotate: false
-  xy: 38, 92
+  xy: 20, 56
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 Ghost_Eyes_Left
   rotate: false
-  xy: 110, 92
+  xy: 110, 74
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 Ghost_Eyes_Right
   rotate: false
-  xy: 74, 92
+  xy: 110, 92
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 Ghost_Eyes_Up
   rotate: false
-  xy: 2, 92
+  xy: 20, 74
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 Grapes
   rotate: false
-  xy: 20, 38
+  xy: 110, 110
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 Inky
   rotate: false
-  xy: 20, 20
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-Key
-  rotate: false
-  xy: 38, 2
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-PacMan_Dying
-  rotate: false
-  xy: 20, 110
+  xy: 74, 92
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 0
-PacMan_Walk
+Inky
   rotate: false
-  xy: 20, 110
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 2
-PacMan_Dying
-  rotate: false
-  xy: 2, 74
+  xy: 92, 110
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 1
-PacMan_Dying
+Key
   rotate: false
-  xy: 20, 92
+  xy: 56, 20
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
-  index: 2
+  index: -1
 PacMan_Dying
   rotate: false
   xy: 38, 110
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
+  index: 0
+PacMan_Walk
+  rotate: false
+  xy: 38, 110
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+PacMan_Dying
+  rotate: false
+  xy: 2, 56
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+PacMan_Dying
+  rotate: false
+  xy: 38, 92
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
   index: 3
-PacMan_Dying
-  rotate: false
-  xy: 20, 74
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 5
-PacMan_Dying
-  rotate: false
-  xy: 56, 110
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 7
 PacMan_Dying
   rotate: false
   xy: 2, 38
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
+  index: 5
+PacMan_Dying
+  rotate: false
+  xy: 38, 74
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 7
+PacMan_Dying
+  rotate: false
+  xy: 56, 92
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
   index: 8
-PacMan_Dying
-  rotate: false
-  xy: 20, 56
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 9
-PacMan_Dying
-  rotate: false
-  xy: 74, 110
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 4
 PacMan_Dying
   rotate: false
   xy: 38, 56
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
+  index: 4
+PacMan_Dying
+  rotate: false
+  xy: 20, 20
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
   index: 11
 PacMan_Dying
   rotate: false
-  xy: 56, 74
+  xy: 20, 2
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 10
 PacMan_Dying
   rotate: false
-  xy: 38, 38
+  xy: 38, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 2
+PacMan_Dying
+  rotate: false
+  xy: 56, 38
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: 6
+PacMan_Dying
+  rotate: false
+  xy: 92, 74
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 9
 PacMan_Life
-  rotate: false
-  xy: 2, 2
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-PacMan_Walk
-  rotate: false
-  xy: 2, 110
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 3
-PacMan_Walk
-  rotate: false
-  xy: 2, 110
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 1
-PacMan_Walk
-  rotate: false
-  xy: 110, 110
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: 0
-Peach
-  rotate: false
-  xy: 20, 2
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
-Pinky
   rotate: false
   xy: 92, 92
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
+PacMan_Walk
+  rotate: false
+  xy: 20, 110
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 3
+PacMan_Walk
+  rotate: false
+  xy: 20, 110
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
+PacMan_Walk
+  rotate: false
+  xy: 74, 74
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 0
+Peach
+  rotate: false
+  xy: 38, 20
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+Pinky
+  rotate: false
+  xy: 2, 20
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 0
+Pinky
+  rotate: false
+  xy: 2, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: 1
 Strawberry
   rotate: false
-  xy: 92, 110
+  xy: 74, 110
   size: 16, 16
   orig: 16, 16
   offset: 0, 0

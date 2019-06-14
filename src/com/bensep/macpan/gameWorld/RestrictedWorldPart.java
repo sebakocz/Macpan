@@ -8,7 +8,7 @@ public class RestrictedWorldPart extends WorldPart {
         this.restricted = restricted;
     }
 
-    private byte restricted;
+    protected byte restricted;
 
     public byte isRestricted() {
         return restricted;

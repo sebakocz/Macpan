@@ -1,9 +1,12 @@
 package com.bensep.macpan.handlers;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.bensep.macpan.entities.Ghost;
 import com.bensep.macpan.gameWorld.PacManMaze;
+import com.bensep.macpan.tesxtures.Animations;
 import com.bensep.macpan.tesxtures.Textures;
 
 import static com.bensep.macpan.constants.Constants.TILE_SIZE;
@@ -11,7 +14,7 @@ import static com.bensep.macpan.constants.Constants.TILE_SIZE;
 public class Personality {
     private float xStartPos;
     private float yStartPos;
-    private TextureRegion texture;
+    private Animation animation;
     private Vector2 targetTile;
     private PacManMaze maze;
     private Ghost ghost;
@@ -19,8 +22,8 @@ public class Personality {
 
     public Personality(PacManMaze maze) {
         targetTile = new Vector2(0f, 0f);
-        texture = Textures.getInstance().clyde;
-        xStartPos = 15.5f * TILE_SIZE;
+        animation = Animations.getInstance().clyde;
+        xStartPos = 13.5f * TILE_SIZE;
         yStartPos = 18 * TILE_SIZE;
         this.maze = maze;
         deadState = 0;
@@ -34,8 +37,12 @@ public class Personality {
         return yStartPos;
     }
 
-    public TextureRegion getTexture() {
-        return texture;
+    public Animation getAnimation() {
+        return animation;
+    }
+
+    public TextureRegion getKeyFrame() {
+        return animation.getKeyFrame(Gdx.graphics.getFrameId(),true);
     }
 
     public Vector2 getTargetTile() {
@@ -72,8 +79,6 @@ public class Personality {
                         targetTile = maze.getTileAt(13 * TILE_SIZE, 21 * TILE_SIZE).getPos();
                     }
                 }
-                break;
-            case HOUSE:
                 break;
         }
     }
