@@ -37,8 +37,8 @@ public class Ghost extends Entity {
         super(personality.getXStartPos(), personality.getYStartPos(), TILE_SIZE, TILE_SIZE, -4, -4, (byte) (OUT1 | OUT2 | OUT3), OUT2, Textures.getInstance().frightened, 1, 1, gameWorld);
         this.personality = personality;
         currentTile = (WorldPart) gameWorld.getTileAt(getCenter().x, center.y);
-        direction = Direction.DOWN;
-        newDirection = Direction.NONE;
+        direction = Direction.LEFT;
+        newDirection = Direction.UP;
         this.speed = speed;
         options = new float[4];
         freezeTimer = 60;

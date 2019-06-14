@@ -16,15 +16,17 @@ public class Personality {
     private float yStartPos;
     private Animation animation;
     private Vector2 targetTile;
+    private Vector2 corner;
     private PacManMaze maze;
     private Ghost ghost;
     private byte deadState;
 
-    public Personality(PacManMaze maze) {
-        targetTile = new Vector2(0f, 0f);
-        animation = Animations.getInstance().clyde;
-        xStartPos = 13.5f * TILE_SIZE;
-        yStartPos = 18 * TILE_SIZE;
+    public Personality(PacManMaze maze, float x, float y , Animation animation, Vector2 corner) {
+        this.corner = corner;
+        targetTile = corner;
+        this.animation = animation;
+        xStartPos = x;
+        yStartPos = y;
         this.maze = maze;
         deadState = 0;
     }
@@ -55,6 +57,7 @@ public class Personality {
                 targetTile = maze.getTileAt(maze.getPacMan().getCenter().x, maze.getPacMan().getCenter().y).getPos();
                 break;
             case SCATTER:
+                targetTile = corner;
                 break;
             case FRIGHTENED:
                 break;

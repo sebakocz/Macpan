@@ -22,12 +22,14 @@ public class Animations {
     public Animation pacMan;
     public Animation energizer;
     public Animation clyde;
+    public Animation blinky;
 
     private void loadAnimations() {
         Textures textures = Textures.getInstance();
         pacMan = new Animation(2f*MOVEMENT_SPEED, textures.pacManWalk);
         energizer = new Animation(20f, textures.energizer, textures.empty);
         clyde = new Animation(6f, textures.clyde);
+        blinky = new Animation(6f, textures.blinky);
     }
 
 
