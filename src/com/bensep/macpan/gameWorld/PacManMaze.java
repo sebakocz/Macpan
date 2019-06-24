@@ -46,6 +46,7 @@ public class PacManMaze extends GameWorld {
         ghosts[0] = new Ghost(new Blinky(this), this, .75f);
         ghosts[1] = new Ghost(new Pinky(this), this, .75f);
         entities.add(ghosts[0]);
+        entities.add(ghosts[1]);
     }
 
     public void loadGrid() {
@@ -162,7 +163,9 @@ public class PacManMaze extends GameWorld {
     }
 
     public void setGhostState(Ghost.State state) {
-        ghosts[0].setState(state,600);
+        for (int i = 0; i < 2; i++) {
+            ghosts[i].setState(state, 600);
+        }
     }
 
     public void freeze(int frames) {
