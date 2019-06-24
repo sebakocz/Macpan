@@ -11,13 +11,13 @@ import com.bensep.macpan.tesxtures.Textures;
 
 import static com.bensep.macpan.constants.Constants.TILE_SIZE;
 
-public class Personality {
+public abstract class Personality {
     private float xStartPos;
     private float yStartPos;
     private Animation animation;
     private Vector2 targetTile;
     private Vector2 corner;
-    private PacManMaze maze;
+    protected PacManMaze maze;
     private Ghost ghost;
     private byte deadState;
 
@@ -51,10 +51,12 @@ public class Personality {
         return targetTile;
     }
 
+    public abstract Vector2 getChasePos();
+
     public void update(Ghost.State state) {
         switch (state) {
             case CHASE:
-                targetTile = maze.getTileAt(maze.getPacMan().getCenter().x, maze.getPacMan().getCenter().y).getPos();
+                targetTile = getChasePos();
                 break;
             case SCATTER:
                 targetTile = corner;
