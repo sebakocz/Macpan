@@ -14,6 +14,6 @@ public class Blinky extends Personality {
 
     @Override
     public void setChasePos() {
-        targetTile = maze.getTileAt(maze.getPacMan().getCenter().x, maze.getPacMan().getCenter().y).getPos();
+        targetTile.set(maze.getTileAt(maze.getPacMan().getCenter().x, maze.getPacMan().getCenter().y).getPos());
     }
 }

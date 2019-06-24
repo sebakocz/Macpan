@@ -23,7 +23,8 @@ public abstract class Personality {
 
     public Personality(PacManMaze maze, float x, float y , Animation animation, Vector2 corner) {
         this.corner = corner;
-        targetTile = corner;
+        targetTile = new Vector2();
+        targetTile.set(corner);
         this.animation = animation;
         xStartPos = x;
         yStartPos = y;
@@ -66,9 +67,9 @@ public abstract class Personality {
             case DEAD:
                 if (deadState >= 1) {
                     if (deadState == 1) {
-                        targetTile = maze.getTileAt(13 * TILE_SIZE, 17 * TILE_SIZE).getPos();
+                        targetTile.set(maze.getTileAt(13 * TILE_SIZE, 17 * TILE_SIZE).getPos());
                     } else {
-                        targetTile = maze.getTileAt(14 * TILE_SIZE, 17 * TILE_SIZE).getPos();
+                        targetTile.set(maze.getTileAt(14 * TILE_SIZE, 17 * TILE_SIZE).getPos());
                     }
                 } else {
                     if (maze.getTileAt(ghost.getCenter().x, ghost.getCenter().y).y == 21 * TILE_SIZE) {
@@ -79,9 +80,9 @@ public abstract class Personality {
                         }
                     }
                     if (maze.getTileAt(ghost.getCenter().x, ghost.getCenter().y).x <= 13 * TILE_SIZE) {
-                        targetTile = maze.getTileAt(14 * TILE_SIZE, 21 * TILE_SIZE).getPos();
+                        targetTile.set(maze.getTileAt(14 * TILE_SIZE, 21 * TILE_SIZE).getPos());
                     } else {
-                        targetTile = maze.getTileAt(13 * TILE_SIZE, 21 * TILE_SIZE).getPos();
+                        targetTile.set(maze.getTileAt(13 * TILE_SIZE, 21 * TILE_SIZE).getPos());
                     }
                 }
                 break;
