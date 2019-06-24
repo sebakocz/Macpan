@@ -6,10 +6,7 @@ import com.bensep.macpan.entities.Energizer;
 import com.bensep.macpan.entities.Ghost;
 import com.bensep.macpan.entities.PacMan;
 import com.bensep.macpan.entities.Dot;
-import com.bensep.macpan.handlers.Blinky;
-import com.bensep.macpan.handlers.Clyde;
-import com.bensep.macpan.handlers.Personality;
-import com.bensep.macpan.handlers.Pinky;
+import com.bensep.macpan.handlers.*;
 import com.bensep.macpan.myGameLib.Direction;
 import com.bensep.macpan.myGameLib.GameObject;
 import com.bensep.macpan.myGameLib.GameWorld;
@@ -31,6 +28,8 @@ public class PacManMaze extends GameWorld {
     private float ghostTunnelSpeed;
     private float ghostFrightSpeed;
     private int freeze;
+    private int releaseState;
+    private SetDirectionPart[] releaseMech;
 
     private float dotTimer;
     private float dotTimerMax = 240;
@@ -46,13 +45,16 @@ public class PacManMaze extends GameWorld {
         ghostTunnelSpeed = .4f;
         ghostFrightSpeed = .5f;
         freeze = 0;
+        releaseState = 0;
+        releaseMech = new SetDirectionPart[6];
         pacMan = new PacMan(13.5f, 9, this, .8f);
         entities.add(pacMan);
         ghosts = new Ghost[4];
         ghosts[0] = new Ghost(new Blinky(this), this, .75f);
         ghosts[1] = new Ghost(new Pinky(this), this, .75f);
-        ghosts[2] = new Ghost(new Clyde(this), this, .75f);
-        for (int i = 0; i < 3; i++) {
+        ghosts[2] = new Ghost(new Inky(this), this, .75f);
+        ghosts[3] = new Ghost(new Clyde(this), this, .75f);
+        for (int i = 0; i < 4; i++) {
             entities.add(ghosts[i]);
         }
     }
@@ -173,7 +175,7 @@ public class PacManMaze extends GameWorld {
     }
 
     public void setGhostState(Ghost.State state) {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 4; i++) {
             ghosts[i].setState(state, 600);
         }
     }
@@ -193,5 +195,18 @@ public class PacManMaze extends GameWorld {
         dotTimer = 0;
         dotCounter++;
 
+    }
+
+    public void releaseGhost() {
+        switch (releaseState) {
+            case 0:
+
+                break;
+            case 1:
+
+                break;
+            default:
+                System.out.println("This should not happen");
+        }
     }
 }

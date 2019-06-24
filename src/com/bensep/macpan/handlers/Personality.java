@@ -2,6 +2,7 @@ package com.bensep.macpan.handlers;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.bensep.macpan.entities.Ghost;
@@ -9,6 +10,7 @@ import com.bensep.macpan.gameWorld.PacManMaze;
 import com.bensep.macpan.tesxtures.Animations;
 import com.bensep.macpan.tesxtures.Textures;
 
+import static com.bensep.macpan.constants.Constants.DEBUG;
 import static com.bensep.macpan.constants.Constants.TILE_SIZE;
 
 public abstract class Personality {
@@ -87,6 +89,11 @@ public abstract class Personality {
                 }
                 break;
         }
+    }
+
+    public void render(SpriteBatch spriteBatch) {
+        if (DEBUG)
+        spriteBatch.draw(getKeyFrame(), targetTile.x - TILE_SIZE / 2, targetTile.y - TILE_SIZE / 2, TILE_SIZE, TILE_SIZE, TILE_SIZE * 2, TILE_SIZE * 2, .25f, .25f, 0);
     }
 
     public void setGhost(Ghost ghost) {

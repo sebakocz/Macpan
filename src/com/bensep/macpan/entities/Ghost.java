@@ -3,7 +3,9 @@ package com.bensep.macpan.entities;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.bensep.macpan.gameWorld.PacManMaze;
+import com.bensep.macpan.gameWorld.SetDirectionPart;
 import com.bensep.macpan.gameWorld.WorldPart;
+import com.bensep.macpan.handlers.Inky;
 import com.bensep.macpan.handlers.Personality;
 import com.bensep.macpan.myGameLib.Direction;
 import com.bensep.macpan.myGameLib.Entity;
@@ -68,6 +70,7 @@ public class Ghost extends Entity {
 
     @Override
     public void render(SpriteBatch spriteBatch) {
+        personality.render(spriteBatch);
         switch (state) {
             case FRIGHTENED:
                 super.render(spriteBatch);
@@ -192,9 +195,9 @@ public class Ghost extends Entity {
                         } else options[counter] = -1;
                         counter++;
                     }
-                    float bestOption = 365f;
+                    float bestOption = -1f;
                     for (counter = 0; counter < 4; counter++) {
-                        if (options[counter] < bestOption && options[counter] != -1) {
+                        if ((options[counter] < bestOption||bestOption == -1) && options[counter] != -1) {
                             bestOption = options[counter];
                             switch (counter) {
                                 case 0:
