@@ -32,6 +32,11 @@ public class PacManMaze extends GameWorld {
     private float ghostFrightSpeed;
     private int freeze;
 
+    private float dotTimer;
+    private float dotTimerMax = 240;
+    private int dotCounter = 0;
+    public int score = 0;
+
     public PacManMaze() {
         super(WORLD_WIDTH, WORLD_HEIGHT, TILE_SIZE);
         loadGrid();
@@ -129,6 +134,8 @@ public class PacManMaze extends GameWorld {
     public void update() {
         if (freeze <= 0) {
             super.update();
+            dotTimer++;
+
         } else {
             freeze--;
         }
@@ -177,5 +184,14 @@ public class PacManMaze extends GameWorld {
 
     public Ghost getGhost(int index){
         return ghosts[index];
+    }
+
+    public void dotEaten(){
+        //add Score //reset Timer //add dot counter
+
+        score += 10;
+        dotTimer = 0;
+        dotCounter++;
+
     }
 }
