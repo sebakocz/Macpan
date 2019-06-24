@@ -13,7 +13,7 @@ public class Blinky extends Personality {
     }
 
     @Override
-    public Vector2 getChasePos() {
-        return maze.getTileAt(maze.getPacMan().getCenter().x, maze.getPacMan().getCenter().y).getPos();
+    public void setChasePos() {
+        targetTile = maze.getTileAt(maze.getPacMan().getCenter().x, maze.getPacMan().getCenter().y).getPos();
     }
 }

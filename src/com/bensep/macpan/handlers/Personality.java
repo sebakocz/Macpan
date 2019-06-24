@@ -15,7 +15,7 @@ public abstract class Personality {
     private float xStartPos;
     private float yStartPos;
     private Animation animation;
-    private Vector2 targetTile;
+    protected Vector2 targetTile;
     private Vector2 corner;
     protected PacManMaze maze;
     private Ghost ghost;
@@ -51,12 +51,12 @@ public abstract class Personality {
         return targetTile;
     }
 
-    public abstract Vector2 getChasePos();
+    public abstract void setChasePos();
 
     public void update(Ghost.State state) {
         switch (state) {
             case CHASE:
-                targetTile = getChasePos();
+                setChasePos();
                 break;
             case SCATTER:
                 targetTile = corner;

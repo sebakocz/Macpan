@@ -26,6 +26,8 @@ public class Textures {
     public TextureRegion frightened;
     public TextureRegion[] clyde;
     public TextureRegion[] blinky;
+    public TextureRegion[] pinky;
+    public TextureRegion[] inky;
     public TextureRegion[] eyes;
 
 
@@ -50,6 +52,8 @@ public class Textures {
         for (int i = 0; i < 2; i++) {
             clyde[i] = ResourceHandler.getInstance().getAtlas("Entities").findRegion("Clyde", i);
             blinky[i] = ResourceHandler.getInstance().getAtlas("Entities").findRegion("Blinky", i);
+            pinky[i] = ResourceHandler.getInstance().getAtlas("Entities").findRegion("Pinky", i);
+            inky[i] = ResourceHandler.getInstance().getAtlas("Entities").findRegion("Inky", i);
         }
         eyes = new TextureRegion[4];
         eyes[0] = ResourceHandler.getInstance().getAtlas("Entities").findRegion("Ghost_Eyes_Up");

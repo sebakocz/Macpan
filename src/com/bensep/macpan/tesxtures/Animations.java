@@ -23,6 +23,8 @@ public class Animations {
     public Animation energizer;
     public Animation clyde;
     public Animation blinky;
+    public Animation pinky;
+    public Animation inky;
 
     private void loadAnimations() {
         Textures textures = Textures.getInstance();
@@ -30,6 +32,8 @@ public class Animations {
         energizer = new Animation(20f, textures.energizer, textures.empty);
         clyde = new Animation(6f, textures.clyde);
         blinky = new Animation(6f, textures.blinky);
+        inky = new Animation(6f, textures.inky);
+        pinky = new Animation(6f, textures.pinky);
     }
 
 
