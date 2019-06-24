@@ -140,7 +140,7 @@ public class PacManMaze extends GameWorld {
         if (freeze <= 0) {
             super.update();
             dotTimer++;
-
+            checkReleaseGhost();
         } else {
             freeze--;
         }
@@ -200,7 +200,15 @@ public class PacManMaze extends GameWorld {
 
     }
 
+    private void checkReleaseGhost(){
+        if (dotTimer >= dotTimerMax) releaseGhost();
+        else if(dotCounter >= 30 && releaseState == 0) releaseGhost();
+        else if(dotCounter >= 60 && releaseState == 1) releaseGhost();
+    }
+
     public void releaseGhost() {
+        dotCounter = 0;
+        dotTimer = 0;
         switch (releaseState) {
             case 0:
                 releaseMech[0].setDirection(Direction.RIGHT);
@@ -215,5 +223,6 @@ public class PacManMaze extends GameWorld {
             default:
                 System.out.println("This should not happen");
         }
+        releaseState++;
     }
 }
