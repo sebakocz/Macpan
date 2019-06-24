@@ -7,6 +7,7 @@ import com.bensep.macpan.entities.Ghost;
 import com.bensep.macpan.entities.PacMan;
 import com.bensep.macpan.entities.Dot;
 import com.bensep.macpan.handlers.Blinky;
+import com.bensep.macpan.handlers.Clyde;
 import com.bensep.macpan.handlers.Personality;
 import com.bensep.macpan.handlers.Pinky;
 import com.bensep.macpan.myGameLib.Direction;
@@ -45,8 +46,10 @@ public class PacManMaze extends GameWorld {
         ghosts = new Ghost[4];
         ghosts[0] = new Ghost(new Blinky(this), this, .75f);
         ghosts[1] = new Ghost(new Pinky(this), this, .75f);
-        entities.add(ghosts[0]);
-        entities.add(ghosts[1]);
+        ghosts[2] = new Ghost(new Clyde(this), this, .75f);
+        for (int i = 0; i < 3; i++) {
+            entities.add(ghosts[i]);
+        }
     }
 
     public void loadGrid() {
@@ -163,7 +166,7 @@ public class PacManMaze extends GameWorld {
     }
 
     public void setGhostState(Ghost.State state) {
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 3; i++) {
             ghosts[i].setState(state, 600);
         }
     }
