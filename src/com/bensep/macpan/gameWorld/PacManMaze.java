@@ -38,6 +38,8 @@ public class PacManMaze extends GameWorld {
 
     public PacManMaze() {
         super(WORLD_WIDTH, WORLD_HEIGHT, TILE_SIZE);
+        releaseState = 0;
+        releaseMech = new SetDirectionPart[6];
         loadGrid();
         pacManSpeed = .8f;
         pacManBoostSpeed = .9f;
@@ -45,8 +47,6 @@ public class PacManMaze extends GameWorld {
         ghostTunnelSpeed = .4f;
         ghostFrightSpeed = .5f;
         freeze = 0;
-        releaseState = 0;
-        releaseMech = new SetDirectionPart[6];
         pacMan = new PacMan(13.5f, 9, this, .8f);
         entities.add(pacMan);
         ghosts = new Ghost[4];
@@ -115,6 +115,9 @@ public class PacManMaze extends GameWorld {
                             spawnEntity(new Energizer(x,y,this));
                     }
                 }
+            }
+            for (int i = 0; i < 6; i++) {
+                releaseMech[i] = (SetDirectionPart) worldGrid[11 + i][18];
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -200,10 +203,14 @@ public class PacManMaze extends GameWorld {
     public void releaseGhost() {
         switch (releaseState) {
             case 0:
-
+                releaseMech[0].setDirection(Direction.RIGHT);
+                releaseMech[1].setDirection(Direction.RIGHT);
+                releaseMech[3].setDirection(Direction.UP);
                 break;
             case 1:
-
+                releaseMech[5].setDirection(Direction.RIGHT);
+                releaseMech[4].setDirection(Direction.RIGHT);
+                releaseMech[2].setDirection(Direction.UP);
                 break;
             default:
                 System.out.println("This should not happen");

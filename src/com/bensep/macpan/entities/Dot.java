@@ -14,7 +14,7 @@ public class Dot extends Entity {
 
     @Override
     public void onDeath() {
-        //Todo: Update Score
+        ((PacManMaze) gameWorld).dotEaten();
         ((PacManMaze) gameWorld).getPacMan().stop(1f);
         super.onDeath();
     }

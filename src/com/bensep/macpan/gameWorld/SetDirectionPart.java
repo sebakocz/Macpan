@@ -14,6 +14,10 @@ public class SetDirectionPart extends RestrictedWorldPart {
         this.direction = direction;
     }
 
+    public void setDirection(Direction direction) {
+        this.direction = direction;
+    }
+
     @Override
     public void update() {
         if (direction != Direction.NONE) {
