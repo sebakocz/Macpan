@@ -149,4 +149,8 @@ public class PacMan extends Entity {
     public void setLives(int lives) {
         this.lives = lives;
     }
+
+    public Direction getDirection() {
+        return direction;
+    }
 }

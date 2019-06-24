@@ -1,6 +1,4 @@
 package com.bensep.macpan.handlers;
-
-import com.badlogic.gdx.math.Vector2;
 import com.bensep.macpan.gameWorld.PacManMaze;
 import com.bensep.macpan.tesxtures.Animations;
 
@@ -13,6 +11,21 @@ public class Pinky extends Personality {
 
     @Override
     public void setChasePos() {
+        switch (maze.getPacMan().getDirection()) {
+            case UP:
+                targetTile.set(4f * TILE_SIZE, -4f * TILE_SIZE);
+                break;
+            case LEFT:
+                targetTile.set(0, -4f * TILE_SIZE);
+                break;
+            case DOWN:
+                targetTile.set(-4f * TILE_SIZE, 0);
+                break;
+            case RIGHT:
+                targetTile.set(0, 4f * TILE_SIZE);
+                break;
+        }
+        targetTile.add(maze.getTileAt(maze.getPacMan().getCenter()).getPos());
 
     }
 }

@@ -16,9 +16,9 @@ public abstract class Personality {
     private float yStartPos;
     private Animation animation;
     protected Vector2 targetTile;
-    private Vector2 corner;
+    protected Vector2 corner;
     protected PacManMaze maze;
-    private Ghost ghost;
+    protected Ghost ghost;
     private byte deadState;
 
     public Personality(PacManMaze maze, float x, float y , Animation animation, Vector2 corner) {

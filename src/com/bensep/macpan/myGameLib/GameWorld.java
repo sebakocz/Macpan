@@ -113,6 +113,10 @@ public abstract class GameWorld extends Rectangle{
         return worldGrid[(int) (x / tileSize)][(int) (y / tileSize)];
     }
 
+    public WorldTile getTileAt(Vector2 pos) {
+        return getTileAt(pos.x, pos.y);
+    }
+
 
 
 }
