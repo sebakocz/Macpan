@@ -174,4 +174,8 @@ public class PacManMaze extends GameWorld {
     public void freeze(int frames) {
         freeze += frames;
     }
+
+    public Ghost getGhost(int index){
+        return ghosts[index];
+    }
 }
