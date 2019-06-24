@@ -57,13 +57,13 @@ public class PacManMaze extends GameWorld {
                     tile = scanner.next();
                     switch (tile) {
                         case "74":
-                            worldGrid[x][y] = new RestrictedWorldPart(x, y, Textures.getInstance().empty,GameObject.OUT3);
+                            worldGrid[x][y] = new RestrictedWorldPart(x, y, Textures.getInstance().empty, GameObject.OUT3);
                             break;
                         case "75":
                             worldGrid[x][y] = new BoostWorldPart(x, y, (byte) 0, Textures.getInstance().empty, this);
                             break;
                         case "73":
-                            setGridAt(x,y,false, Textures.getInstance().empty);
+                            setGridAt(x, y, false, Textures.getInstance().empty);
                             break;
                         case "72":
                             worldGrid[x][y] = new SetDirectionPart(x, y, Textures.getInstance().barrier, (GameObject.OUT2), Direction.UP);
@@ -84,7 +84,7 @@ public class PacManMaze extends GameWorld {
                             worldGrid[x][y] = new SetDirectionPart(x, y, Textures.getInstance().empty, (GameObject.OUT2), Direction.NONE);
                             break;
                         default:
-                            setGridAt(x,y,true, Textures.getInstance().maze[Character.getNumericValue(tile.charAt(0))][Character.getNumericValue(tile.charAt(1))]);
+                            setGridAt(x, y, true, Textures.getInstance().maze[Character.getNumericValue(tile.charAt(0))][Character.getNumericValue(tile.charAt(1))]);
                             break;
                     }
                 }
@@ -98,10 +98,10 @@ public class PacManMaze extends GameWorld {
                 for (int x = 0; x < WORLD_WIDTH; x++) {
                     switch (scanner.next()) {
                         case "1":
-                            spawnEntity(new Dot(x,y,this));
+                            spawnEntity(new Dot(x, y, this));
                             break;
                         case "2":
-                            spawnEntity(new Energizer(x,y,this));
+                            spawnEntity(new Energizer(x, y, this));
                     }
                 }
             }
@@ -162,10 +162,15 @@ public class PacManMaze extends GameWorld {
     }
 
     public void setGhostState(Ghost.State state) {
-        ghosts[0].setState(state,600);
+        ghosts[0].setState(state, 600);
     }
 
     public void freeze(int frames) {
         freeze += frames;
     }
+
+    public Ghost getGhost(int index) {
+        return ghosts[index];
+    }
+
 }
