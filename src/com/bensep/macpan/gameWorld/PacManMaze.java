@@ -8,6 +8,7 @@ import com.bensep.macpan.entities.PacMan;
 import com.bensep.macpan.entities.Dot;
 import com.bensep.macpan.handlers.Blinky;
 import com.bensep.macpan.handlers.Personality;
+import com.bensep.macpan.handlers.Pinky;
 import com.bensep.macpan.myGameLib.Direction;
 import com.bensep.macpan.myGameLib.GameObject;
 import com.bensep.macpan.myGameLib.GameWorld;
@@ -43,6 +44,7 @@ public class PacManMaze extends GameWorld {
         entities.add(pacMan);
         ghosts = new Ghost[4];
         ghosts[0] = new Ghost(new Blinky(this), this, .75f);
+        ghosts[1] = new Ghost(new Pinky(this), this, .75f);
         entities.add(ghosts[0]);
     }
 
