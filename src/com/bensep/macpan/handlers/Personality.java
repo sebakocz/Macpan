@@ -60,7 +60,7 @@ public abstract class Personality {
                 setChasePos();
                 break;
             case SCATTER:
-                targetTile = corner;
+                targetTile.set(corner);
                 break;
             case FRIGHTENED:
                 break;
