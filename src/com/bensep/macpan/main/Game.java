@@ -94,5 +94,6 @@ public class Game implements ApplicationListener {
     public void initResources() {
         ResourceHandler.getInstance().addAtlas("Maze", "res/textures/Maze.atlas");
         ResourceHandler.getInstance().addAtlas("Entities", "res/textures/Entities.atlas");
+        ResourceHandler.getInstance().addAtlas("Fonts", "res/textures/Fonts.atlas");
     }
 }

@@ -59,10 +59,15 @@ public class PacManMaze extends GameWorld {
         }
     }
 
+    public int getScore() {
+        return score;
+    }
+
     public void loadGrid() {
         try {
             Scanner scanner = new Scanner(new File("res/Level/Level1Maze"));
             String tile;
+            int scoreDigit = 10000;
             for (int y = 0; y < WORLD_HEIGHT; y++) {
                 for (int x = 0; x < WORLD_WIDTH; x++) {
                     tile = scanner.next();
@@ -93,6 +98,10 @@ public class PacManMaze extends GameWorld {
                             break;
                         case "84":
                             worldGrid[x][y] = new SetDirectionPart(x, y, Textures.getInstance().empty, (GameObject.OUT2), Direction.NONE);
+                            break;
+                        case "90":
+                            worldGrid[x][y] = new ScoreElement(x, y, this, scoreDigit);
+                            scoreDigit /= 10;
                             break;
                         default:
                             setGridAt(x,y,true, Textures.getInstance().maze[Character.getNumericValue(tile.charAt(0))][Character.getNumericValue(tile.charAt(1))]);
@@ -201,9 +210,10 @@ public class PacManMaze extends GameWorld {
     }
 
     private void checkReleaseGhost(){
-        if (dotTimer >= dotTimerMax) releaseGhost();
-        else if(dotCounter >= 30 && releaseState == 0) releaseGhost();
-        else if(dotCounter >= 60 && releaseState == 1) releaseGhost();
+        if (dotTimer >= dotTimerMax && releaseState < 2) {
+            releaseGhost();
+        } else if (dotCounter >= 30 && releaseState == 0){ releaseGhost();}
+        else if (dotCounter >= 60 && releaseState == 1) releaseGhost();
     }
 
     public void releaseGhost() {
@@ -216,9 +226,10 @@ public class PacManMaze extends GameWorld {
                 releaseMech[3].setDirection(Direction.UP);
                 break;
             case 1:
-                releaseMech[5].setDirection(Direction.RIGHT);
-                releaseMech[4].setDirection(Direction.RIGHT);
+                releaseMech[5].setDirection(Direction.LEFT);
+                releaseMech[4].setDirection(Direction.LEFT);
                 releaseMech[2].setDirection(Direction.UP);
+                releaseMech[3].setDirection(Direction.NONE);
                 break;
             default:
                 System.out.println("This should not happen");

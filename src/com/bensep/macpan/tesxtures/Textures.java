@@ -29,6 +29,7 @@ public class Textures {
     public TextureRegion[] pinky;
     public TextureRegion[] inky;
     public TextureRegion[] eyes;
+    public TextureRegion[] numbers;
 
 
     public void loadTextures() {
@@ -62,6 +63,10 @@ public class Textures {
         eyes[1] = ResourceHandler.getInstance().getAtlas("Entities").findRegion("Ghost_Eyes_Left");
         eyes[2] = ResourceHandler.getInstance().getAtlas("Entities").findRegion("Ghost_Eyes_Down");
         eyes[3] = ResourceHandler.getInstance().getAtlas("Entities").findRegion("Ghost_Eyes_Right");
+        numbers = new TextureRegion[10];
+        for (int i = 0; i < 10; i++) {
+            numbers[i] = ResourceHandler.getInstance().getAtlas("Fonts").findRegion("" + i);
+        }
     }
 
 

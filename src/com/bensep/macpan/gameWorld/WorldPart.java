@@ -2,8 +2,10 @@ package com.bensep.macpan.gameWorld;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.bensep.macpan.myGameLib.GameObject;
 import com.bensep.macpan.myGameLib.WorldTile;
 
+import static com.bensep.macpan.constants.Constants.DEBUG;
 import static com.bensep.macpan.constants.Constants.TILE_SIZE;
 
 public class WorldPart extends WorldTile {
@@ -19,6 +21,10 @@ public class WorldPart extends WorldTile {
 
     @Override
     public void render(SpriteBatch spriteBatch) {
-        spriteBatch.draw(texture, x + xTextureOffset, y + yTextureOffset);
+        if (DEBUG) {
+            spriteBatch.draw(texture, x + xTextureOffset, y + yTextureOffset);
+        } else {
+            super.render(spriteBatch);
+        }
     }
 }

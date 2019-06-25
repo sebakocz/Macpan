@@ -65,6 +65,7 @@ public abstract class Personality {
                 targetTile.set(corner);
                 break;
             case FRIGHTENED:
+                deadState = 0;
                 break;
             case DEAD:
                 if (deadState >= 1) {

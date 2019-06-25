@@ -9,7 +9,7 @@ public class Constants {
 
     public static final float MOVEMENT_SPEED = 1f;
     public static final float GHOST_PRECISION = .125f;
-    public static final boolean DEBUG = false;
+    public static final boolean DEBUG = true;
 
     //inputs
     public static final int MOVE_UP = UP;
