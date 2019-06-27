@@ -2,7 +2,6 @@ package com.bensep.macpan.gameWorld;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.bensep.macpan.myGameLib.GameObject;
 import com.bensep.macpan.myGameLib.WorldTile;
 
 import static com.bensep.macpan.constants.Constants.DEBUG;

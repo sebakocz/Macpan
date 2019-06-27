@@ -317,6 +317,14 @@ public class Ghost extends Entity {
         this.direction = direction;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj.getClass() == this.getClass()) {
+            return ((Ghost) obj).personality == personality;
+        }
+        return false;
+    }
+
     public enum State {
         CHASE,
         SCATTER,
