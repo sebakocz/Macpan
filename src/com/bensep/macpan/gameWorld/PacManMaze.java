@@ -29,7 +29,11 @@ public class PacManMaze extends GameWorld {
     private float ghostFrightSpeed;
     private int freeze;
     private int releaseState;
-    private SetDirectionPart[] releaseMech;
+    private SetDirectionPart[] releaseMechanism;
+
+    private int deadCounter;
+    private boolean startAnimation;
+
 
     private float dotTimer;
     private float dotTimerMax = 240;
@@ -39,7 +43,7 @@ public class PacManMaze extends GameWorld {
     public PacManMaze() {
         super(WORLD_WIDTH, WORLD_HEIGHT, TILE_SIZE);
         releaseState = 0;
-        releaseMech = new SetDirectionPart[6];
+        releaseMechanism = new SetDirectionPart[6];
         loadGrid();
         pacManSpeed = .8f;
         pacManBoostSpeed = .9f;
@@ -57,6 +61,9 @@ public class PacManMaze extends GameWorld {
         for (int i = 0; i < 4; i++) {
             entities.add(ghosts[i]);
         }
+
+        startAnimation = true;
+        deadCounter = -1;
     }
 
     public int getScore() {
@@ -126,7 +133,7 @@ public class PacManMaze extends GameWorld {
                 }
             }
             for (int i = 0; i < 6; i++) {
-                releaseMech[i] = (SetDirectionPart) worldGrid[11 + i][18];
+                releaseMechanism[i] = (SetDirectionPart) worldGrid[11 + i][18];
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -141,7 +148,14 @@ public class PacManMaze extends GameWorld {
                 worldGrid[x][y].render(spriteBatch);
             }
         }
-        entities.forEach(entity -> entity.render(spriteBatch));
+        if (deadCounter >= 0) {
+            deadCounter++;
+            freeze++;
+        }
+        entities.forEach(entity -> {
+            if (entity.getClass()!=Ghost.class||deadCounter<0)
+            entity.render(spriteBatch);
+        });
     }
 
     @Override
@@ -221,19 +235,23 @@ public class PacManMaze extends GameWorld {
         dotTimer = 0;
         switch (releaseState) {
             case 0:
-                releaseMech[0].setDirection(Direction.RIGHT);
-                releaseMech[1].setDirection(Direction.RIGHT);
-                releaseMech[3].setDirection(Direction.UP);
+                releaseMechanism[0].setDirection(Direction.RIGHT);
+                releaseMechanism[1].setDirection(Direction.RIGHT);
+                releaseMechanism[3].setDirection(Direction.UP);
                 break;
             case 1:
-                releaseMech[5].setDirection(Direction.LEFT);
-                releaseMech[4].setDirection(Direction.LEFT);
-                releaseMech[2].setDirection(Direction.UP);
-                releaseMech[3].setDirection(Direction.NONE);
+                releaseMechanism[5].setDirection(Direction.LEFT);
+                releaseMechanism[4].setDirection(Direction.LEFT);
+                releaseMechanism[2].setDirection(Direction.UP);
+                releaseMechanism[3].setDirection(Direction.NONE);
                 break;
             default:
                 System.out.println("This should not happen");
         }
         releaseState++;
+    }
+
+    public void pacManDied() {
+        deadCounter++;
     }
 }
