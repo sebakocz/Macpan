@@ -1,6 +1,6 @@
 package com.bensep.macpan.handlers;
 import com.bensep.macpan.gameWorld.PacManMaze;
-import com.bensep.macpan.tesxtures.Animations;
+import com.bensep.macpan.textures.Animations;
 
 import static com.bensep.macpan.constants.Constants.TILE_SIZE;
 

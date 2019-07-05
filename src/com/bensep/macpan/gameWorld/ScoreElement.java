@@ -2,12 +2,7 @@ package com.bensep.macpan.gameWorld;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.bensep.macpan.gameWorld.PacManMaze;
-import com.bensep.macpan.gameWorld.WorldPart;
-import com.bensep.macpan.myGameLib.GameObject;
-import com.bensep.macpan.tesxtures.Textures;
-
-import static com.bensep.macpan.constants.Constants.TILE_SIZE;
+import com.bensep.macpan.textures.Textures;
 
 public class ScoreElement extends WorldPart {
 

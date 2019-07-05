@@ -3,14 +3,12 @@ package com.bensep.macpan.entities;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.bensep.macpan.gameWorld.PacManMaze;
-import com.bensep.macpan.gameWorld.SetDirectionPart;
 import com.bensep.macpan.gameWorld.WorldPart;
-import com.bensep.macpan.handlers.Inky;
 import com.bensep.macpan.handlers.Personality;
 import com.bensep.macpan.myGameLib.Direction;
 import com.bensep.macpan.myGameLib.Entity;
 import com.bensep.macpan.myGameLib.GameWorld;
-import com.bensep.macpan.tesxtures.Textures;
+import com.bensep.macpan.textures.Textures;
 
 import static com.bensep.macpan.constants.Constants.TILE_SIZE;
 import static com.bensep.macpan.constants.Constants.GHOST_PRECISION;

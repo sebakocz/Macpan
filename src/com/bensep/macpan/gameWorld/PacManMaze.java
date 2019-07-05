@@ -10,7 +10,7 @@ import com.bensep.macpan.handlers.*;
 import com.bensep.macpan.myGameLib.Direction;
 import com.bensep.macpan.myGameLib.GameObject;
 import com.bensep.macpan.myGameLib.GameWorld;
-import com.bensep.macpan.tesxtures.Textures;
+import com.bensep.macpan.textures.Textures;
 
 import java.io.File;
 import java.io.FileNotFoundException;

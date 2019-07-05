@@ -6,7 +6,7 @@ import com.bensep.macpan.gameWorld.PacManMaze;
 import com.bensep.macpan.handlers.InputHandler;
 import com.bensep.macpan.myGameLib.Direction;
 import com.bensep.macpan.myGameLib.Entity;
-import com.bensep.macpan.tesxtures.Animations;
+import com.bensep.macpan.textures.Animations;
 
 import static com.bensep.macpan.constants.Constants.*;
 

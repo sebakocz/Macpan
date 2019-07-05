@@ -4,8 +4,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.bensep.macpan.gameWorld.PacManMaze;
 import com.bensep.macpan.myGameLib.Entity;
-import com.bensep.macpan.tesxtures.Animations;
-import com.bensep.macpan.tesxtures.Textures;
+import com.bensep.macpan.textures.Animations;
+import com.bensep.macpan.textures.Textures;
 
 import static com.bensep.macpan.constants.Constants.TILE_SIZE;
 

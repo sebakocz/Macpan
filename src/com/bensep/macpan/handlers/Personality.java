@@ -7,8 +7,6 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.bensep.macpan.entities.Ghost;
 import com.bensep.macpan.gameWorld.PacManMaze;
-import com.bensep.macpan.tesxtures.Animations;
-import com.bensep.macpan.tesxtures.Textures;
 
 import static com.bensep.macpan.constants.Constants.DEBUG;
 import static com.bensep.macpan.constants.Constants.TILE_SIZE;
